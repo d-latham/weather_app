@@ -1,0 +1,49 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = WeatherApp
+build_property.RootNamespace = WeatherApp
+build_property.ProjectDir = /Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/Pages/Astronomy.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQXN0cm9ub215LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/Pages/HourlyForecast.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG91cmx5Rm9yZWNhc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1N1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-p2bs0tkcr3
+
+[/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-fjo7m7klui
