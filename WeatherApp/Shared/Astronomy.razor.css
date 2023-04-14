@@ -1,0 +1,27 @@
+.location-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .location-form label {
+    margin-right: 10px;
+  }
+  
+  .location-form input[type="text"] {
+    margin-right: 20px;
+  }
+  
+  .sunrise-sunset-times {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .background-image {
+    background-image: url("https://unsplash.com/photos/8c6eS43iq1o");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+  
