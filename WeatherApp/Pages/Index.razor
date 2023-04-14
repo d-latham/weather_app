@@ -1,9 +1,38 @@
-﻿@page "/"
+﻿@using WeatherApp.Models;
+@using WeatherApp.Clients;
+
+@inject WeatherClient WeatherClient;
+
+
+@page "/"
 
 <PageTitle>Index</PageTitle>
+@* testing access in each return*@
+<h1>You are here: @weatherResponse.location.name</h1>
+<h1>Local time: @weatherResponse.location.localtime</h1>
+<h1>current temp in C: @weatherResponse.current.temp_c</h1>
+@* causes nothing to show up - unable to figure out how to access lists
+<h1>forecast: @weatherResponse.forecast.forecastday[0].date</h1> 
 
-<h1>Hello, world!</h1>
+<h1>Alerts: @weatherResponse.alerts.alert[0].instruction</h1>
+*@
 
-Welcome to your new app.
+@code {
+    private WeatherResponse? weatherResponse = null;
+
+    protected override async Task OnInitializedAsync() {
+        
+        weatherResponse = await WeatherClient.getWeather(null, null);
+    }
+
+    private string? newLocation;
+
+    private async Task selectLocation() {
+        if (!string.IsNullOrWhiteSpace(newLocation)) {
+            weatherResponse = await WeatherClient.getWeather(newLocation, null);
+            newLocation = string.Empty;
+        }
+    }
+}
 
 
