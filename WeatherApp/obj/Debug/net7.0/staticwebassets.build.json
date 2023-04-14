@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+aaHA7v8b2zP150/JPweIgpeAqL0VHxV9iOTRYmOsB8=",
+  "Hash": "zP6n0aAGMQBBKZGMER5t6kzoLVs3mxTxYj69S/rPYSA=",
   "Source": "WeatherApp",
   "BasePath": "/",
   "Mode": "Root",
@@ -457,6 +457,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/davidlatham/.nuget/packages/microsoft.extensions.filesystemglobbing/7.0.0/lib/net7.0/Microsoft.Extensions.FileSystemGlobbing.dll"
+    },
+    {
+      "Identity": "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/bin/Debug/net7.0/wwwroot/_framework/Microsoft.Extensions.Http.dll",
+      "SourceId": "WeatherApp",
+      "SourceType": "Computed",
+      "ContentRoot": "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/bin/Debug/net7.0/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.Extensions.Http.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/Users/davidlatham/.nuget/packages/microsoft.extensions.http/7.0.0/lib/net7.0/Microsoft.Extensions.Http.dll"
     },
     {
       "Identity": "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/bin/Debug/net7.0/wwwroot/_framework/Microsoft.Extensions.Logging.Abstractions.dll",
@@ -6696,6 +6713,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/bin/Debug/net7.0/wwwroot/_framework/System.Net.dll"
+    },
+    {
+      "Identity": "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/obj/Debug/net7.0/build-gz/y5wJjQs8.gz",
+      "SourceId": "WeatherApp",
+      "SourceType": "Computed",
+      "ContentRoot": "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/bin/Debug/net7.0/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.Extensions.Http.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/bin/Debug/net7.0/wwwroot/_framework/Microsoft.Extensions.Http.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/bin/Debug/net7.0/wwwroot/_framework/Microsoft.Extensions.Http.dll"
     },
     {
       "Identity": "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/obj/Debug/net7.0/build-gz/YI22YzFB.gz",
