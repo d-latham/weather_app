@@ -1,0 +1,99 @@
+body {
+    background-image: url("https://images.unsplash.com/photo-1505322022379-7c3353ee6291?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    color: #fff;
+  }
+  
+  .astronomy-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin: 50px auto;
+    max-width: 800px;
+  }
+  
+  .astronomy-header {
+    font-size: 3em;
+    font-family: Arial, sans-serif;
+    margin-bottom: 30px;
+    text-align: center; /* Added to center the text */
+  }
+  
+  .location-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .location-form label {
+    margin-right: 10px;
+  }
+  
+  .location-form input[type="text"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    max-width: 400px;
+  }
+  
+  .radio-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .radio-buttons label {
+    margin-right: 10px;
+  }
+  
+  .radio-buttons input[type="radio"] {
+    display: none;
+  }
+  
+  .radio-buttons label {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .radio-buttons input[type="radio"]:checked + label {
+    background-color: #0069d9;
+  }
+  
+  .location-form button[type="submit"] {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    margin-top: 10px;
+  }
+  
+  .location-form button[type="submit"]:hover {
+    background-color: #0069d9;
+  }
+  
+  .sunrise-sunset-details {
+    font-size: 1.2em;
+    margin-top: 30px;
+  }
+  
+  .sunrise-sunset-details span {
+    background-color: #0069d9; /* Changed the background color of the span */
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
