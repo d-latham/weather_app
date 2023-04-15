@@ -1,0 +1,32 @@
+@page "/astro"
+
+<PageTitle>Astronomy Stuff</PageTitle>
+
+<div class="astronomy-container">
+  <h1 class="astronomy-header">Astronomy of the Day</h1>
+
+  <form class="location-form">
+    <label for="location">Enter location:</label>
+    <input type="text" id="location" name="location" placeholder="e.g. New York City">
+
+    <div class="radio-buttons">
+      <div class="radio-button-group">
+        <input type="radio" id="sunrise" name="time" value="sunrise" checked>
+        <label for="sunrise">Sunrise</label>
+      </div>
+
+      <div class="radio-button-group">
+        <input type="radio" id="sunset" name="time" value="sunset">
+        <label for="sunset">Sunset</label>
+      </div>
+    </div>
+
+    <div class="submit-buttons">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+
+  <div class="sunrise-sunset-details">
+    <!-- Sunrise and sunset details will be displayed here -->
+  </div>
+</div>
