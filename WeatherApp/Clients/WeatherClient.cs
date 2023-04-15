@@ -16,7 +16,7 @@ public class WeatherClient {
         string api_key = "d5f4a95b8c7a4c6eb1a125959231404";
         string url = "http://api.weatherapi.com/v1/"+pageA+".json?key=" + api_key;
         string paramaters ="&aqi=yes";
-        string numDays = "1";
+        string numDays = "3";
         string dateDefault = "2023-04-15";
         
         
@@ -25,7 +25,7 @@ public class WeatherClient {
             url += "&q=" + location;
         } 
         else {
-            url += "&q=Columbus, Ga";
+            url += "&q=81301";
         }
         if (numberOfDays != null) {
             numDays = numberOfDays;
@@ -39,7 +39,7 @@ dateDefault = date;
 url += paramaters;
         }
         else if(pageA == "forecast"){
-            paramaters = "&days="+numDays+"&aqi=no&alerts=no";
+            paramaters = "&days="+numDays+"&aqi=yes&alerts=yes";
             url += paramaters;
         }
         else{

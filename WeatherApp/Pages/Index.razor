@@ -69,7 +69,7 @@
     protected override async Task OnInitializedAsync()
      {
         
-        weatherResponse = await WeatherClient.getWeather("current",null, null,null);
+        weatherResponse = await WeatherClient.getWeather("forecast",null, null,null);
         response = weatherResponse;
         asignVariables(response);
         //location = weatherResponse.location.name + ", " + weatherResponse.location.region;
@@ -82,7 +82,7 @@
 
     private async Task selectLocation() {
         if (!string.IsNullOrWhiteSpace(newLocation)) {
-            weatherResponse = await WeatherClient.getWeather("current",newLocation, null,null);
+            weatherResponse = await WeatherClient.getWeather("forecast",newLocation, null,null);
             newLocation = string.Empty;
         }
     }
