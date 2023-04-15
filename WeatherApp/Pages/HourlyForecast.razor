@@ -1,6 +1,51 @@
-﻿@page "/hourly"
+﻿@using WeatherApp.Models;
+@using WeatherApp.Clients;
+
+@inject WeatherClient WeatherClient;
+
+
+@page "/hourly"
 
 <PageTitle>Hourly Forecast</PageTitle>
+<div>
+    <div class="mb-3">
+        <label class="form-label" for="exampleFormControlInput1">Please enter the your cityname or Zip Code</label>
+        <input class="form-control" id="exampleFormControlInput1" placeholder="Ex: Columbus, GA or 31907" @bind="newLocation"/>
+    </div>
+    <button class="btn btn-primary" @onclick="selectLocation">Submit</button>
+</div>
 
-<h1>Current location</h1>
+<h1 class="display-6">You are here: @response.location.name</h1>
+<div>
+@foreach(var p in response.forecast.forecastday){
+   
+<div>@foreach(var q in @p.hour){
+        <p>@q.time
+        </p>
+    
+    <p>temperature : @q.temp_c</p>
+    <p>Weather Style : @q.condition.text</p>
+    <a href="https://www.weatherapi.com/" title="Free Weather API"><img src="@q.condition.icon"/></a>
+}</div>
 
+}</div>
+@code {
+    private WeatherResponse? weatherResponse = null;
+    public WeatherResponse response = null;
+    protected override async Task OnInitializedAsync() {
+        
+        weatherResponse = await WeatherClient.getWeather("forecast", null,"1",null);
+        response = weatherResponse;
+        
+    }
+
+    public string? newLocation;
+
+     async Task selectLocation() {
+        if (!string.IsNullOrWhiteSpace(newLocation)) {
+            weatherResponse = await WeatherClient.getWeather("forecast",newLocation, "1",null);
+            response = weatherResponse;
+            newLocation = string.Empty;
+        }
+    }
+}
