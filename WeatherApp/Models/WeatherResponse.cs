@@ -42,7 +42,7 @@ public record WeatherResponse {
         public string areas { get; set; }
         public string category { get; set; }
         public string certainty { get; set; }
-        public string @event { get; set; }
+        public string alertevent { get; set; }
         public string note { get; set; }
         public DateTime effective { get; set; }
         public DateTime expires { get; set; }

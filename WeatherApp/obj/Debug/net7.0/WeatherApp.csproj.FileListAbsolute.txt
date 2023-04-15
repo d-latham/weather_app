@@ -830,3 +830,4 @@
 /Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/bin/Debug/net7.0/wwwroot/_framework/Microsoft.Extensions.Http.dll.gz
 /Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/bin/Debug/net7.0/Microsoft.Extensions.Http.dll
 /Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/obj/Debug/net7.0/build-gz/y5wJjQs8.gz
+/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/obj/Debug/net7.0/scopedcss/Shared/Astro.razor.rz.scp.css

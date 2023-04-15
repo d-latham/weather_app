@@ -7,23 +7,76 @@
 @page "/"
 
 <PageTitle>Index</PageTitle>
-@* testing access in each return*@
-<h1>You are here: @weatherResponse.location.name</h1>
-<h1>Local time: @weatherResponse.location.localtime</h1>
-<h1>current temp in C: @weatherResponse.current.temp_c</h1>
-@* causes nothing to show up - unable to figure out how to access lists
-<h1>forecast: @weatherResponse.forecast.forecastday[0].date</h1> 
 
+<h1>@city, @state</h1>
+<!-- Conditions -->
+<img src=@currentURL alt="Condition Icon"/>
+<div class="row">
+    <div class="col">
+        <p>The current conditions are @description with a @forecast.forecastday[0].day.daily_chance_of_rain% chance of rain.</p>
+    </div>
+</div>
+<br/>
+<!-- 3 day forecast hi/lo -->
+@if (forecast != null) {
+    <div class="row">
+    @foreach (var forecastday in forecast.forecastday)
+    {
+        <div class="col">
+            <p>@forecastday.date</p>
+            <p>max:@forecastday.day.maxtemp_f f / min:@forecastday.day.mintemp_f f</p>
+            <img src=@forecastday.day.condition.icon alt = "icon"/>
+        </div>
+        
+
+    
+    }
+    </div>
+}
+<br/>
+<!-- Alerts -->
+@if (alerts != null) {
+    @foreach (var alert in alerts.alert) {
+        <br/>
+        <p>@alert.headline --- @alert.areas</p>
+        <p>@alert.effective.ToString("MM/dd/yyyy") - @alert.expires.ToString("MM/dd/yyyy")</p>
+        <p>@alert.desc</p>
+        <p>@alert.instruction</p>
+    }
+}
+@*<h1>Local time: @response.location.localtime</h1>
+<h1>current temp in C: @response.current.temp_c</h1>
+@* causes nothing to show up - unable to figure out how to access lists *@
+@* <h1>forecast: @forecastday[0]</h1>  *@
+@*
 <h1>Alerts: @weatherResponse.alerts.alert[0].instruction</h1>
 *@
 
 @code {
     private WeatherResponse? weatherResponse = null;
 
-    protected override async Task OnInitializedAsync() {
+    // Variables for use on the page
+    private WeatherResponse response = null;
+    private string city;
+    private string state;
+    private string description;
+    private string currentURL;
+    
+    
+    private WeatherResponse.Forecast forecast;
+    private WeatherResponse.Alerts alerts;
+
+    protected override async Task OnInitializedAsync()
+     {
         
         weatherResponse = await WeatherClient.getWeather(null, null);
+        response = weatherResponse;
+        asignVariables(response);
+        //location = weatherResponse.location.name + ", " + weatherResponse.location.region;
+        //forecastday = weatherResponse.forecast.forecastday;
+        
     }
+    
 
     private string? newLocation;
 
@@ -33,6 +86,15 @@
             newLocation = string.Empty;
         }
     }
-}
 
+    private void asignVariables(WeatherResponse response) {
+        city = response.location.name;
+        state = response.location.region;
+        description = response.current.condition.text.ToLower();
+        forecast = response.forecast;
+        currentURL = response.current.condition.icon;
+        alerts = response.alerts;
+    }
+
+}
 

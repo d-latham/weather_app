@@ -40,6 +40,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/Shared/Astro.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0FzdHJvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-gpc57fcor0
+
 [/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-p2bs0tkcr3
