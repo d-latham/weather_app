@@ -15,7 +15,7 @@ public class WeatherClient {
         string pageA = pageaddress;
         string api_key = "d5f4a95b8c7a4c6eb1a125959231404";
         string url = "http://api.weatherapi.com/v1/"+pageA+".json?key=" + api_key;
-        string paramaters ="&aqi=yes";
+        string paramaters = string.Empty;
         string numDays = "3";
         string dateDefault = "2023-04-15";
         
@@ -25,21 +25,22 @@ public class WeatherClient {
             url += "&q=" + location;
         } 
         else {
-            url += "&q=81301";
+            url += "&q=London";
         }
+ 
         if (numberOfDays != null) {
             numDays = numberOfDays;
         }
         
         if(date!=null){
-dateDefault = date;
+            dateDefault = date;
         }
 
         if(pageA == "current"){
-url += paramaters;
+            url += paramaters;
         }
         else if(pageA == "forecast"){
-            paramaters = "&days="+numDays+"&aqi=yes&alerts=yes";
+            paramaters = "&days=" + numDays + "&aqi=yes&alerts=yes";
             url += paramaters;
         }
         else{

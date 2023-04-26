@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using WeatherApp;
 using WeatherApp.Clients;
+using System.Web;
 
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);

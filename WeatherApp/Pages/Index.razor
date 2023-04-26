@@ -1,19 +1,44 @@
 ﻿@using WeatherApp.Models;
 @using WeatherApp.Clients;
+@using System.Web;
+@using WeatherApp.Shared;
 
 @inject WeatherClient WeatherClient;
 
 
 @page "/"
-
+<link href="Index.razor.css" rel="stylesheet" />
 <PageTitle>Index</PageTitle>
 
-<h1>@city, @state</h1>
+<!-- Show initial popup to get location -->
+@if (!@isLocation) {
+    <div class="container border border-primary rounded">
+        <h1>Weather Forecast</h1>
+        <p>Enter Location</p>
+        <input placeholder="City, State or Zip Code" @bind="newLocation"/>
+        <button @onclick="selectLocation">Show me the weather!</button>
+
+    </div>
+}else {
+
+<div class="row">
+<div class="col">
+<h1>@city, @state @dateTime.DayOfWeek</h1>
+</div>
+<div class="col col-xl">
+    <button @onclick="changeLocation">change location</button>
+</div>
+</div>
 <!-- Conditions -->
-<img src=@currentURL alt="Condition Icon"/>
+
 <div class="row">
     <div class="col">
-        <p>The current conditions are @description with a @forecast.forecastday[0].day.daily_chance_of_rain% chance of rain.</p>
+        <p>The current conditions are @current.condition.text with a @forecast.forecastday[0].day.daily_chance_of_rain% chance of rain.
+            Winds headed @current.wind_dir at @current.wind_mph mph with gusts up to @current.gust_mph mph.
+        </p>
+    </div>
+    <div class="col">
+        <img src=@current.condition.icon alt="Condition Icon" style="width:100px;height:100px;"/>
     </div>
 </div>
 <br/>
@@ -24,7 +49,7 @@
     {
         <div class="col">
             <p>@forecastday.date</p>
-            <p>max:@forecastday.day.maxtemp_f f / min:@forecastday.day.mintemp_f f</p>
+            <p>@forecastday.day.maxtemp_f f /@forecastday.day.mintemp_f f</p>
             <img src=@forecastday.day.condition.icon alt = "icon"/>
         </div>
         
@@ -44,6 +69,7 @@
         <p>@alert.instruction</p>
     }
 }
+}
 @*<h1>Local time: @response.location.localtime</h1>
 <h1>current temp in C: @response.current.temp_c</h1>
 @* causes nothing to show up - unable to figure out how to access lists *@
@@ -54,6 +80,7 @@
 
 @code {
     private WeatherResponse? weatherResponse = null;
+    
 
     // Variables for use on the page
     private WeatherResponse response = null;
@@ -61,29 +88,33 @@
     private string state;
     private string description;
     private string currentURL;
+    private bool isLocation = false;
+    private WeatherResponse.Current current;
+    private DateTime dateTime;
+
     
     
     private WeatherResponse.Forecast forecast;
     private WeatherResponse.Alerts alerts;
 
-    protected override async Task OnInitializedAsync()
+     protected override async Task OnInitializedAsync()
      {
-        
+        //HttpCookie cookie = Request.Cookies("LocationCookie");
         weatherResponse = await WeatherClient.getWeather("forecast",null, null,null);
         response = weatherResponse;
         asignVariables(response);
         //location = weatherResponse.location.name + ", " + weatherResponse.location.region;
         //forecastday = weatherResponse.forecast.forecastday;
-        
+         
     }
     
-
     private string? newLocation;
-
     private async Task selectLocation() {
         if (!string.IsNullOrWhiteSpace(newLocation)) {
             weatherResponse = await WeatherClient.getWeather("forecast",newLocation, null,null);
             newLocation = string.Empty;
+            asignVariables(weatherResponse);
+            isLocation=true;
         }
     }
 
@@ -94,7 +125,19 @@
         forecast = response.forecast;
         currentURL = response.current.condition.icon;
         alerts = response.alerts;
+        current = response.current;
+        dateTime = Convert.ToDateTime(response.location.localtime);
     }
+    private void changeLocation(){
+        isLocation = false;
+    }
+
+    @* private void setCookie(String location) {
+        private HttpCookie locationCookie = new HttpCookie("LocationCookie");
+        locationCookie.Value = location;
+        locationCookie.Expires = now.AddYears(1);
+        Response.Cookies.Add(locationCookie);
+    }  *@
 
 }
 
