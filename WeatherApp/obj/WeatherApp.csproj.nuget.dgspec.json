@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/WeatherApp.csproj": {}
+    "/Users/kasiviswanathgundapaneedi/Documents/weather_app/WeatherApp/WeatherApp.csproj": {}
   },
   "projects": {
-    "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/WeatherApp.csproj": {
+    "/Users/kasiviswanathgundapaneedi/Documents/weather_app/WeatherApp/WeatherApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/WeatherApp.csproj",
+        "projectUniqueName": "/Users/kasiviswanathgundapaneedi/Documents/weather_app/WeatherApp/WeatherApp.csproj",
         "projectName": "WeatherApp",
-        "projectPath": "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/WeatherApp.csproj",
-        "packagesPath": "/Users/davidlatham/.nuget/packages/",
-        "outputPath": "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/obj/",
+        "projectPath": "/Users/kasiviswanathgundapaneedi/Documents/weather_app/WeatherApp/WeatherApp.csproj",
+        "packagesPath": "/Users/kasiviswanathgundapaneedi/.nuget/packages/",
+        "outputPath": "/Users/kasiviswanathgundapaneedi/Documents/weather_app/WeatherApp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/davidlatham/.nuget/NuGet/NuGet.Config"
+          "/Users/kasiviswanathgundapaneedi/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -67,7 +66,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[7.0.1, 7.0.1]"
+              "version": "[7.0.2, 7.0.2]"
             }
           ],
           "frameworkReferences": {
@@ -75,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.102/RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

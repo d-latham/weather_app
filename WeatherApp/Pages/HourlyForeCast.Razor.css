@@ -1,0 +1,48 @@
+.card {
+    flex-direction: column;
+}
+
+.card img {
+    width: 30%;
+  }
+#search {
+    background-color: #FFEAEA;
+    color: #000;
+    width: 700px;
+    height: 35px;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    border-radius: 10px;
+}
+
+
+
+
+
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+  }
+
+  .space-evenly { 
+    justify-content: space-evenly; 
+  }
+  .space-evenly li {
+    background: #bada55; 
+  }
+
+  .flex-item {
+    background: tomato;
+    padding: 5px;
+    width: 60px;
+    height: 50px;
+    margin: 5px;
+    line-height: 50px;
+    color: white;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+  }
