@@ -1,32 +1,61 @@
 @page "/astro"
+@using WeatherApp.Models;
+@using WeatherApp.Clients;
 
-<PageTitle>Astronomy Stuff</PageTitle>
+@inject WeatherClient WeatherClient;
 
-<div class="astronomy-container">
-  <h1 class="astronomy-header">Astronomy of the Day</h1>
+ <PageTitle>Astronomy Page</PageTitle>
 
-  <form class="location-form">
-    <label for="location">Enter location:</label>
-    <input type="text" id="location" name="location" placeholder="e.g. New York City">
-
-    <div class="radio-buttons">
-      <div class="radio-button-group">
-        <input type="radio" id="sunrise" name="time" value="sunrise" checked>
-        <label for="sunrise">Sunrise</label>
-      </div>
-
-      <div class="radio-button-group">
-        <input type="radio" id="sunset" name="time" value="sunset">
-        <label for="sunset">Sunset</label>
-      </div>
-    </div>
-
-    <div class="submit-buttons">
-      <button type="submit">Submit</button>
-    </div>
-  </form>
-
-  <div class="sunrise-sunset-details">
-    <!-- Sunrise and sunset details will be displayed here -->
-  </div>
+<div class="form-group">
+    <label class="form-label" for="exampleFormControlInput1">Please enter your City  or Zip Code</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ex: Columbus or 31907" @bind-value="newLocation" />
 </div>
+<div class="form-group">
+    <label class="form-label" for="exampleFormControlInput1">Date</label>
+    <input type="date" class="form-control" id="newdate" @bind-value="newdate" />
+</div>
+
+<button class="btn btn-primary" @onclick="selectLocation">Submit</button>
+<div class="output-box">
+<h1 class="display-6">You are here: @response.location.name</h1>
+
+@if (response != null && response.forecast != null && response.forecast.forecastday != null)
+{
+    var astro = response.forecast.forecastday[0].astro;
+    <div>
+        <p>sunrise : @astro.sunrise</p>
+        <p>sunset : @astro.sunset</p>
+        <p>moonrise : @astro.moonrise</p>
+        <p>moonset : @astro.moonset</p>
+        <p>moon_phase : @astro.moon_phase</p>
+    </div>
+}
+</div>
+
+@code {
+    private WeatherResponse? weatherResponse = null;
+    public WeatherResponse? response = null;
+    public string? newLocation;
+    public DateTime? newdate;
+
+    protected override async Task OnInitializedAsync()
+    {
+        weatherResponse = await WeatherClient.getWeather("forecast", null, "1", null);
+        response = weatherResponse;
+    }
+
+    async Task selectLocation()
+    {
+        //if (!string.IsNullOrWhiteSpace(newLocation))
+        //{
+        //    weatherResponse = await WeatherClient.getWeather("forecast", newLocation, "1", newdate);
+        //    response = weatherResponse;
+        //    newLocation = string.Empty;
+        //}
+
+        weatherResponse = await WeatherClient.getWeather("forecast", newLocation, "1", newdate);
+        response = weatherResponse;
+        newLocation = string.Empty;
+        newdate = null;
+    }
+}
