@@ -46,13 +46,6 @@
 
     async Task selectLocation()
     {
-        //if (!string.IsNullOrWhiteSpace(newLocation))
-        //{
-        //    weatherResponse = await WeatherClient.getWeather("forecast", newLocation, "1", newdate);
-        //    response = weatherResponse;
-        //    newLocation = string.Empty;
-        //}
-
         weatherResponse = await WeatherClient.getWeather("forecast", newLocation, "1", newdate);
         response = weatherResponse;
         newLocation = string.Empty;
