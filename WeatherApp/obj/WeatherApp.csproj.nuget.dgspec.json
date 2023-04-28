@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/WeatherApp.csproj": {}
+    "/workspaces/weather_app/WeatherApp/WeatherApp.csproj": {}
   },
   "projects": {
-    "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/WeatherApp.csproj": {
+    "/workspaces/weather_app/WeatherApp/WeatherApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/WeatherApp.csproj",
+        "projectUniqueName": "/workspaces/weather_app/WeatherApp/WeatherApp.csproj",
         "projectName": "WeatherApp",
-        "projectPath": "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/WeatherApp.csproj",
-        "packagesPath": "/Users/davidlatham/.nuget/packages/",
-        "outputPath": "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/obj/",
+        "projectPath": "/workspaces/weather_app/WeatherApp/WeatherApp.csproj",
+        "packagesPath": "/home/codespace/.nuget/packages/",
+        "outputPath": "/workspaces/weather_app/WeatherApp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/davidlatham/.nuget/NuGet/NuGet.Config"
+          "/home/codespace/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -67,7 +66,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[7.0.1, 7.0.1]"
+              "version": "[7.0.5, 7.0.5]"
             }
           ],
           "frameworkReferences": {
@@ -75,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/opt/dotnet/7.0.203/sdk/7.0.203/RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

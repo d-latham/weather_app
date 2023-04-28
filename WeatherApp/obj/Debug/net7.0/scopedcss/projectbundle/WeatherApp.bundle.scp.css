@@ -76,105 +76,96 @@ details summary > *[b-5rwp2ce8lp] {
     text-align: center;
   }
 /* /Shared/Astro.razor.rz.scp.css */
-body[b-gpc57fcor0] {
-    background-image: url("https://images.unsplash.com/photo-1505322022379-7c3353ee6291?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
-    background-size: cover;
-    background-position: center;
-    font-family: Arial, sans-serif;
-    color: #fff;
-  }
-  
-  .astronomy-container[b-gpc57fcor0] {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    margin: 50px auto;
-    max-width: 800px;
-  }
-  
-  .astronomy-header[b-gpc57fcor0] {
-    font-size: 3em;
-    font-family: Arial, sans-serif;
-    margin-bottom: 30px;
-    text-align: center; /* Added to center the text */
-  }
-  
-  .location-form[b-gpc57fcor0] {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 30px;
-  }
-  
-  .location-form label[b-gpc57fcor0] {
-    margin-right: 10px;
-  }
-  
-  .location-form input[type="text"][b-gpc57fcor0] {
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    margin-bottom: 10px;
-    max-width: 400px;
-  }
-  
-  .radio-buttons[b-gpc57fcor0] {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-  
-  .radio-buttons label[b-gpc57fcor0] {
-    margin-right: 10px;
-  }
-  
-  .radio-buttons input[type="radio"][b-gpc57fcor0] {
-    display: none;
-  }
-  
-  .radio-buttons label[b-gpc57fcor0] {
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  }
-  
-  .radio-buttons input[type="radio"]:checked + label[b-gpc57fcor0] {
-    background-color: #0069d9;
-  }
-  
-  .location-form button[type="submit"][b-gpc57fcor0] {
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    margin-top: 10px;
-  }
-  
-  .location-form button[type="submit"]:hover[b-gpc57fcor0] {
-    background-color: #0069d9;
-  }
-  
-  .sunrise-sunset-details[b-gpc57fcor0] {
-    font-size: 1.2em;
-    margin-top: 30px;
-  }
-  
-  .sunrise-sunset-details span[b-gpc57fcor0] {
-    background-color: #0069d9; /* Changed the background color of the span */
-    color: #fff;
-    padding: 5px;
-    border-radius: 5px;
-  }
-  
+.form-group[b-gpc57fcor0] {
+  margin-bottom: 0.5rem;
+}
+
+.form-label[b-gpc57fcor0] {
+  display: block;
+  font-family: Arial, sans-serif;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+  font-size: large;
+  color: #75717b;
+}
+
+.form-control[b-gpc57fcor0] {
+  display: block;
+  width: 50%;
+  height: calc(2rem + 2px);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn[b-gpc57fcor0] {
+  display: inline-block;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.btn:hover[b-gpc57fcor0] {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.output-box[b-gpc57fcor0] {
+  width: 50%;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: #f2f2f2;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.output-box .sunrise[b-gpc57fcor0], 
+.output-box .sunset[b-gpc57fcor0], 
+.output-box .moonrise[b-gpc57fcor0], 
+.output-box .moonset[b-gpc57fcor0], 
+.output-box .moon_phase[b-gpc57fcor0] {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.display-6[b-gpc57fcor0] {
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.output-box .date[b-gpc57fcor0], 
+.output-box .location[b-gpc57fcor0] {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-p2bs0tkcr3] {
     position: relative;
