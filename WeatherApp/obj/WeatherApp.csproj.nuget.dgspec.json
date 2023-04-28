@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "/Users/kasiviswanathgundapaneedi/Documents/weather_app/WeatherApp/WeatherApp.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/kasiviswanathgundapaneedi/.nuget/NuGet/NuGet.Config"
+=======
+    "/workspaces/weather_app/WeatherApp/WeatherApp.csproj": {}
+  },
+  "projects": {
+    "/workspaces/weather_app/WeatherApp/WeatherApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/workspaces/weather_app/WeatherApp/WeatherApp.csproj",
+        "projectName": "WeatherApp",
+        "projectPath": "/workspaces/weather_app/WeatherApp/WeatherApp.csproj",
+        "packagesPath": "/home/codespace/.nuget/packages/",
+        "outputPath": "/workspaces/weather_app/WeatherApp/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/codespace/.nuget/NuGet/NuGet.Config"
+>>>>>>> main
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -66,7 +83,11 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
+<<<<<<< HEAD
               "version": "[7.0.2, 7.0.2]"
+=======
+              "version": "[7.0.5, 7.0.5]"
+>>>>>>> main
             }
           ],
           "frameworkReferences": {
@@ -74,7 +95,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.102/RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "/opt/dotnet/7.0.203/sdk/7.0.203/RuntimeIdentifierGraph.json"
+>>>>>>> main
         }
       },
       "runtimes": {

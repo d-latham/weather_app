@@ -1,6 +1,7 @@
 {
   "Files": [
     {
+<<<<<<< HEAD
       "Id": "/Users/kasiviswanathgundapaneedi/Documents/weather_app/WeatherApp/bin/Debug/net7.0/wwwroot/_framework/blazor.webassembly.js",
       "PackagePath": "staticwebassets/_framework/blazor.webassembly.js"
     },
@@ -74,6 +75,89 @@
     },
     {
       "Id": "/Users/kasiviswanathgundapaneedi/Documents/weather_app/WeatherApp/wwwroot/sample-data/weather.json",
+=======
+      "Id": "/workspaces/weather_app/WeatherApp/bin/Debug/net7.0/wwwroot/_framework/blazor.webassembly.js",
+      "PackagePath": "staticwebassets/_framework/blazor.webassembly.js"
+    },
+    {
+      "Id": "/workspaces/weather_app/WeatherApp/obj/Debug/net7.0/build-gz/v6AtCAAE.gz",
+      "PackagePath": "staticwebassets/_framework/blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "/workspaces/weather_app/WeatherApp/obj/Debug/net7.0/scopedcss/bundle/WeatherApp.styles.css",
+      "PackagePath": "staticwebassets/WeatherApp.styles.css"
+    },
+    {
+      "Id": "/workspaces/weather_app/WeatherApp/wwwroot/css/app.css",
+      "PackagePath": "staticwebassets/css/app.css"
+    },
+    {
+      "Id": "/workspaces/weather_app/WeatherApp/wwwroot/css/bootstrap/bootstrap.min.css",
+      "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css"
+    },
+    {
+      "Id": "/workspaces/weather_app/WeatherApp/wwwroot/css/bootstrap/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/workspaces/weather_app/WeatherApp/wwwroot/css/open-iconic/FONT-LICENSE",
+      "PackagePath": "staticwebassets/css/open-iconic"
+    },
+    {
+      "Id": "/workspaces/weather_app/WeatherApp/wwwroot/css/open-iconic/ICON-LICENSE",
+      "PackagePath": "staticwebassets/css/open-iconic"
+    },
+    {
+      "Id": "/workspaces/weather_app/WeatherApp/wwwroot/css/open-iconic/README.md",
+      "PackagePath": "staticwebassets/css/open-iconic/README.md"
+    },
+    {
+      "Id": "/workspaces/weather_app/WeatherApp/wwwroot/css/open-iconic/font/css/open-iconic-bootstrap.min.css",
+      "PackagePath": "staticwebassets/css/open-iconic/font/css/open-iconic-bootstrap.min.css"
+    },
+    {
+      "Id": "/workspaces/weather_app/WeatherApp/wwwroot/css/open-iconic/font/fonts/open-iconic.eot",
+      "PackagePath": "staticwebassets/css/open-iconic/font/fonts/open-iconic.eot"
+    },
+    {
+      "Id": "/workspaces/weather_app/WeatherApp/wwwroot/css/open-iconic/font/fonts/open-iconic.otf",
+      "PackagePath": "staticwebassets/css/open-iconic/font/fonts/open-iconic.otf"
+    },
+    {
+      "Id": "/workspaces/weather_app/WeatherApp/wwwroot/css/open-iconic/font/fonts/open-iconic.svg",
+      "PackagePath": "staticwebassets/css/open-iconic/font/fonts/open-iconic.svg"
+    },
+    {
+      "Id": "/workspaces/weather_app/WeatherApp/wwwroot/css/open-iconic/font/fonts/open-iconic.ttf",
+      "PackagePath": "staticwebassets/css/open-iconic/font/fonts/open-iconic.ttf"
+    },
+    {
+      "Id": "/workspaces/weather_app/WeatherApp/wwwroot/css/open-iconic/font/fonts/open-iconic.woff",
+      "PackagePath": "staticwebassets/css/open-iconic/font/fonts/open-iconic.woff"
+    },
+    {
+      "Id": "/workspaces/weather_app/WeatherApp/wwwroot/favicon.png",
+      "PackagePath": "staticwebassets/favicon.png"
+    },
+    {
+      "Id": "/workspaces/weather_app/WeatherApp/wwwroot/icon-192.png",
+      "PackagePath": "staticwebassets/icon-192.png"
+    },
+    {
+      "Id": "/workspaces/weather_app/WeatherApp/wwwroot/index.html",
+      "PackagePath": "staticwebassets/index.html"
+    },
+    {
+<<<<<<< HEAD
+      "Id": "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/wwwroot/js/CookieStorageAccessor.js",
+      "PackagePath": "staticwebassets/js/CookieStorageAccessor.js"
+    },
+    {
+      "Id": "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/wwwroot/sample-data/weather.json",
+=======
+      "Id": "/workspaces/weather_app/WeatherApp/wwwroot/sample-data/weather.json",
+>>>>>>> main
+>>>>>>> main
       "PackagePath": "staticwebassets/sample-data/weather.json"
     },
     {
