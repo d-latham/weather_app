@@ -17,50 +17,8 @@
 }
 
 
-#time[b-x7iv87rmfm] {
-    padding-left: 25px;
-}
 
 
-
-
-ul[b-x7iv87rmfm] {
-    display: block;
-    list-style-type: disc;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
-}
-
-li[b-x7iv87rmfm] {
-    display: list-item;
-    text-align: -webkit-match-parent;
-    
-}
-
-.DetailsTable--DetailsTable--3Bt2T[b-x7iv87rmfm] {
-    display: flex;
-    flex-flow: row wrap;
-}
-
-
-.DetailsTable--listItem--Z-5Vi[b-x7iv87rmfm] {
-    border-top: 1px solid #dedede!important;
-    margin: 10px 0 0;
-    padding: 10px 0 0;
-    align-items: flex-start;
-    display: flex;
-    flex-grow: 1;
-    list-style: none;
-}
-
-.DetailsTable--label--1qspW[b-x7iv87rmfm] {
-    display: block;
-    font-size: .8125rem;
-    overflow-wrap: break-word;
-}
 
 .flex-container[b-x7iv87rmfm] {
     padding: 0;
@@ -88,3 +46,124 @@ li[b-x7iv87rmfm] {
     font-size: 2em;
     text-align: center;
   }
+
+
+
+  
+   /* details > summary {
+    display: flex;
+    cursor: pointer;
+    justify-content: space-evenly; 
+    list-style: none;
+  } */
+
+  /* display > summary {
+    list-style: none;
+  }
+
+  /* details{
+    display: flex;
+    
+    justify-content: space-evenly;
+  } 
+  details summary::-webkit-details-marker {
+    display:none;
+  }
+
+  summary::after {
+    content: ' +';
+  }
+  details[open] summary:after {
+    content: " -";
+  }  */
+
+  /* details {
+    padding: 0 var(--padding);
+    box-shadow: inset 0 0 0 4px;
+    border-radius: 1px;
+  }
+  details[open] {
+    padding-bottom: var(--padding);
+  }
+  
+  details > summary {
+    display: flex;
+    /* padding: var(--padding);
+    margin: 0 calc(var(--padding) * -1); 
+    border-radius: 1px;
+    font-size: 24px;
+    cursor: pointer;
+    justify-content: space-evenly;
+    list-style: none; /* Hides the default arrow 
+  }
+  details[open] > summary {
+    box-shadow: 0 2px;
+  }
+  /* Adds an icon when the <details> is closed... 
+  details > summary::after {
+    content: "+";
+  }
+  /* ...and switches it when <details> is open 
+  details[open] > summary::after {
+    content: "-";
+  }
+  /* Removes the ugly default arrow on Chrome 
+  details > summary::-webkit-details-marker {
+    display: none;
+  } */
+
+  /* style="justify-content: space-between;" */
+
+  details[open] summary ~ *[b-x7iv87rmfm] {
+    animation: open-b-x7iv87rmfm 0.3s ease-in-out;
+  }
+  
+  @keyframes open-b-x7iv87rmfm {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  details summary[b-x7iv87rmfm]::-webkit-details-marker {
+    display: none;
+  }
+  
+  details summary[b-x7iv87rmfm] {
+    width: 100%;
+    padding: 0.5rem 0;
+    border-top: 1px solid rgb(16, 193, 119);
+    position: relative;
+    cursor: pointer;
+    font-size: 1.25rem;
+    font-weight: 300;
+    list-style: none;
+    justify-content: space-between;
+  }
+  
+  details summary[b-x7iv87rmfm]:after {
+    content: "+";
+    color: black;
+    position: absolute;
+    font-size: 1.75rem;
+    line-height: 0;
+    margin-top: 0.75rem;
+    right: 0;
+    font-weight: 200;
+    transform-origin: center;
+    transition: 200ms linear;
+  }
+  details[open] summary[b-x7iv87rmfm]:after {
+    transform: rotate(45deg);
+    font-size: 2rem;
+  }
+  details summary[b-x7iv87rmfm] {
+    outline: 0;
+  }
+  details p[b-x7iv87rmfm] {
+    font-size: 0.95rem;
+    margin: 0 0 1rem;
+    padding-top: 1rem;
+  }
+  
