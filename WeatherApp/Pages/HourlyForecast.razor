@@ -1,52 +1,110 @@
 ﻿@using WeatherApp.Models;
 @using WeatherApp.Clients;
-
 @inject WeatherClient WeatherClient;
-
-
 @page "/hourly"
 
 <PageTitle>Hourly Forecast</PageTitle>
 <div>
     <div class="mb-3">
-        <label class="form-label" for="exampleFormControlInput1">Please enter the your cityname or Zip Code</label>
-        <input class="form-control" id="exampleFormControlInput1" placeholder="Ex: Columbus, GA or 31907" @bind="newLocation"/>
-    </div>
-    <button class="btn btn-primary" @onclick="selectLocation">Submit</button>
+  <label for="exampleFormControlInput1" style="font-family:Verdana, sans-serif;" class="form-label">Enter the your cityname or Zip Code :</label>
+  <input type="email" class="form-control" id="exampleFormControlInput1" @bind="newLocation" placeholder="Ex: Columbus, GA or 31907">
+  <label for="exampleFormControlInput1" style="font-family:Verdana, sans-serif;" class="form-label">Enter the no of days (limit 3 days):</label>
+  <input type="email" class="form-control" id="exampleFormControlInput1" @bind="days" placeholder="Ex: 1 or 2 or 3">
+  
+</div>
+<button type="submit" @onclick="selectLocation" class="btn btn-primary mb-3">submit</button>
 </div>
 
-<h1 class="display-6">You are here: @response.location.name</h1>
-<div>
-@foreach(var p in response.forecast.forecastday){
-   
-<div>@foreach(var q in @p.hour){
-        <p>@q.time
-        </p>
-    
-    <p>temperature : @q.temp_f</p>
-    <p>Weather Style : @q.condition.text</p>
-    <a href="https://www.weatherapi.com/" title="Free Weather API"><img src="@q.condition.icon"/></a>
-}</div>
+<h1 class="display-6" style="font-family:Verdana, sans-serif;">You are at: @response.location.name</h1>
 
-}</div>
+
+
+@foreach(var p in response.forecast.forecastday){
+ <div class="text-center" style="font-family:Verdana, sans-serif;font-size:35px;display:center;">@p.date</div>
+@foreach(var q in @p.hour){
+    var time = (((@q.time.Split(" "))[1]).Split(":"))[0];
+    var curr = ((@q.time.Split(" "))[0]);
+    var prev = "";
+   
+    if(time == "00"){
+        time = "12 am";
+    }else if( Int32.Parse(time) >= 12){
+        var temp = Int32.Parse(time) - 12;
+        if(temp == 0){
+            time = "12 pm";
+        }
+        else{
+            if(temp >= 10){
+                time = temp.ToString() + " pm";
+            }else{
+            time = "0"+temp.ToString() + " pm";
+            }
+        }
+    }else{
+        time = time + " am";
+    }
+    var windir = @q.wind_dir + " "+@q.wind_mph +" mph";
+        var u = Convert.ToInt32(@q.uv);
+        var rain = "no";
+        if(@q.chance_of_rain == 1){
+            rain = "yes";
+        }
+  
+  <details style="cursor:pointer;">
+  <summary style="list-style: none;font-family:Comic Sans MS">
+     
+      <span class="d-inline-block" id="time">@time</span>
+       <span class="d-inline-block"><a href="https://www.weatherapi.com/" title="Free Weather API"><img src="@q.condition.icon" /></a></span>
+      <span class="d-inline-block">Temperature : @q.temp_f<sup>o</sup>F</span>
+      <span class="d-inline-block">@q.condition.text</span>
+      
+      
+    </summary>
+      
+
+<div class="d-flex bd-highlight" style="justify-content:space-between;">
+<div class="p-2 flex-xl-fill bd-highlight"><i class="fa-solid fa-temperature-high"></i>Feels like <br/>@q.feelslike_f<sup>o</sup> F</div>
+<div class="p-2 flex-xl-fill bd-highlight"><i class="fa-solid fa-wind"></i>Wind <br/>@windir</div>
+<div class="p-2 flex-xl-fill bd-highlight"><i class="fa-solid fa-droplet"></i>Humidity  <br/>@q.humidity</div>
+<div class="p-2 flex-xl-fill bd-highlight"><i class="fa-solid fa-sun"></i>UV index  <br/>@u of 10</div>
+<div class="p-2 flex-xl-fill bd-highlight"><i class="fa-solid fa-cloud"></i>cloud  <br/>@q.cloud%</div>
+<div class="p-2 flex-xl-fill bd-highlight"><i class="fa-solid fa-cloud-rain"></i>Chance of Rain  <br/>@rain</div>
+</div>
+  </details>
+
+   
+   
+   }
+
+
+}
+
 @code {
     private WeatherResponse? weatherResponse = null;
     public WeatherResponse response = null;
+    public String dt;
     protected override async Task OnInitializedAsync() {
         
         weatherResponse = await WeatherClient.getWeather("forecast", null,"1",null);
         response = weatherResponse;
-        
+        Console.WriteLine(response);
+        dt = (response.location.localtime.Split(" "))[0];
     }
 
     public string? newLocation;
+    public string? days;
 
      async Task selectLocation() {
         if (!string.IsNullOrWhiteSpace(newLocation)) {
-            weatherResponse = await WeatherClient.getWeather("forecast",newLocation, "1",null);
+            weatherResponse = await WeatherClient.getWeather("forecast",newLocation, days,null);
             response = weatherResponse;
             newLocation = string.Empty;
+            days = string.Empty;
         }
     }
+
+public string? data = "no";
+
+    
 }
 
