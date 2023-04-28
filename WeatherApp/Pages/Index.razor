@@ -2,86 +2,105 @@
 @using WeatherApp.Clients;
 @using System.Web;
 @using WeatherApp.Shared;
+@using System.Collections.Generic; 
+@using WeatherApp.Pages;
+
 
 @inject WeatherClient WeatherClient;
 
 
+
 @page "/"
-<link href="Index.razor.css" rel="stylesheet" />
+
 <PageTitle>Index</PageTitle>
 
 <!-- Show initial popup to get location -->
 @if (!@isLocation) {
-    <div class="container border border-primary rounded">
-        <h1>Weather Forecast</h1>
-        <p>Enter Location</p>
-        <input placeholder="City, State or Zip Code" @bind="newLocation"/>
-        <button @onclick="selectLocation">Show me the weather!</button>
+    <div class="index-container">
+        <h1 class="index-header">Weather Forecast</h1>
+        <br/>
 
-    </div>
+            <p style="text-align: center;">Enter Location</p>
+        <div  class="text-center"><input style="text-align: center;" class="location-input" placeholder="City, State or Zip Code" @bind="newLocation"/></div>
+        <div class="col text-center" ><button type="button" class="btn btn-success" @onclick="@(e => selectLocation(newLocation))">Show me the weather!</button></div>
+    
+
+        </div>
 }else {
 
 <div class="row">
-<div class="col">
-<h1>@city, @state @dateTime.DayOfWeek</h1>
-</div>
-<div class="col col-xl">
-    <button @onclick="changeLocation">change location</button>
-</div>
+    <div class="col">
+        <h1>@city, @state</h1>
+    </div>
+    @* <div class="col-12 justify-content-end d-flex">
+            <button class="btn btn-outline-primary">.justify-content-end (on flex parent div)</button>
+        </div> *@
+    <div class="col">
+
+        <button type="button" class="btn btn-primary btn-sm float-right" @onclick="changeLocation">change location</button>
+    </div>
 </div>
 <!-- Conditions -->
 
 <div class="row">
-    <div class="col">
+    <div class="col float-right" style="align-items: right;">
         <p>The current conditions are @current.condition.text with a @forecast.forecastday[0].day.daily_chance_of_rain% chance of rain.
             Winds headed @current.wind_dir at @current.wind_mph mph with gusts up to @current.gust_mph mph.
         </p>
-    </div>
-    <div class="col">
-        <img src=@current.condition.icon alt="Condition Icon" style="width:100px;height:100px;"/>
     </div>
 </div>
 <br/>
 <!-- 3 day forecast hi/lo -->
 @if (forecast != null) {
     <div class="row">
-    @foreach (var forecastday in forecast.forecastday)
-    {
-        <div class="col">
-            <p>@forecastday.date</p>
-            <p>@forecastday.day.maxtemp_f f /@forecastday.day.mintemp_f f</p>
-            <img src=@forecastday.day.condition.icon alt = "icon"/>
-        </div>
-        
-
-    
-    }
+        @for(int i = 0; i < forecast.forecastday.Count; i++) {
+            <div class="col">
+                @if (i == 0) {
+                    <h3 class="flex-container">Today</h3>
+                } else {
+                    <h3 class="flex-container">@dateTime.AddDays(i).DayOfWeek</h3> 
+                }
+                <br/>
+                <div class="flex-container"><p>@forecast.forecastday[i].day.maxtemp_f<sup>o</sup>/@forecast.forecastday[i].day.mintemp_f<sup>o</sup></p></div>
+                <div class="flex-container"><img src=@forecast.forecastday[i].day.condition.icon alt = "icon"/></div>
+                @if (forecast.forecastday[i].day.daily_chance_of_rain > 0) {
+                    <p class="flex-container">@forecast.forecastday[i].day.daily_chance_of_rain% chance of Rain</p>
+                } else if (forecast.forecastday[i].day.daily_chance_of_snow > 0) {
+                    <p class="flex-container">@forecast.forecastday[i].day.daily_chance_of_snow% chance of Snow</p>
+                } else {
+                    <p class="flex-container">0% chance of precipitation</p>
+                }
+            </div>
+        }
     </div>
 }
 <br/>
 <!-- Alerts -->
-@if (alerts != null) {
-    @foreach (var alert in alerts.alert) {
+
+@if (alerts != null && alerts.alert.Count != 0) {
+    <h2>Alerts in your area:</h2>
+    @foreach (WeatherResponse.Alert alert in alerts.alert) {
         <br/>
-        <p>@alert.headline --- @alert.areas</p>
-        <p>@alert.effective.ToString("MM/dd/yyyy") - @alert.expires.ToString("MM/dd/yyyy")</p>
-        <p>@alert.desc</p>
-        <p>@alert.instruction</p>
+        <div class="alert-container">
+        <details style="cursor: pointer;">
+            <summary>
+                <div>
+                <p class="d-inline-block">@alert.headline --- @alert.areas</p>
+                <p>@alert.effective.ToString("MM/dd/yyyy") - @alert.expires.ToString("MM/dd/yyyy")</p>
+                </div>
+            </summary>
+            <br/>
+                <p>@alert.desc</p>
+                <p>@alert.instruction</p>
+        </details></div>
     }
 }
 }
-@*<h1>Local time: @response.location.localtime</h1>
-<h1>current temp in C: @response.current.temp_c</h1>
-@* causes nothing to show up - unable to figure out how to access lists *@
-@* <h1>forecast: @forecastday[0]</h1>  *@
-@*
-<h1>Alerts: @weatherResponse.alerts.alert[0].instruction</h1>
-*@
 
 @code {
     private WeatherResponse? weatherResponse = null;
     
-
+    //private WeatherApp.Shared.CookieStorageAccessor cookie = new WeatherApp.Shared.CookieStorageAccessor();
     // Variables for use on the page
     private WeatherResponse response = null;
     private string city;
@@ -92,26 +111,32 @@
     private WeatherResponse.Current current;
     private DateTime dateTime;
 
-    
-    
+    private Dictionary<WeatherResponse.Alert, bool> alertDict = new Dictionary<WeatherResponse.Alert, bool>();
+    private string done = "okay";
     private WeatherResponse.Forecast forecast;
     private WeatherResponse.Alerts alerts;
 
+
      protected override async Task OnInitializedAsync()
      {
+        
+        //CookieStorageAccessor cookie = new CookieStorageAccessor(new IJSRuntime());
+        //cookie.SetValueAsync("location","Durango, Co");
         //HttpCookie cookie = Request.Cookies("LocationCookie");
+        //var savedLocation = cookie.GetValueAsync("location");
+        
+
         weatherResponse = await WeatherClient.getWeather("forecast",null, null,null);
         response = weatherResponse;
         asignVariables(response);
-        //location = weatherResponse.location.name + ", " + weatherResponse.location.region;
-        //forecastday = weatherResponse.forecast.forecastday;
+        isLocation=true;
          
     }
     
     private string? newLocation;
-    private async Task selectLocation() {
+    private async Task selectLocation(string newLoca) {
         if (!string.IsNullOrWhiteSpace(newLocation)) {
-            weatherResponse = await WeatherClient.getWeather("forecast",newLocation, null,null);
+            weatherResponse = await WeatherClient.getWeather("forecast",newLoca, null,null);
             newLocation = string.Empty;
             asignVariables(weatherResponse);
             isLocation=true;
@@ -119,6 +144,7 @@
     }
 
     private void asignVariables(WeatherResponse response) {
+        alertDict.Clear();
         city = response.location.name;
         state = response.location.region;
         description = response.current.condition.text.ToLower();
@@ -127,10 +153,37 @@
         alerts = response.alerts;
         current = response.current;
         dateTime = Convert.ToDateTime(response.location.localtime);
+        foreach (WeatherResponse.Alert alert in alerts.alert) {
+            alertDict.Add(alert, false);
+        }
+
+        
     }
     private void changeLocation(){
         isLocation = false;
     }
+    private string addtoDict(WeatherResponse.Alert key, bool value) {
+        alertDict.Add(key, value);
+        return "okay";
+    }
+    private void showDetail(WeatherResponse.Alert alert) {
+        alertDict[alert] = !alertDict[alert];
+    }
+
+    @* private string GetUserIP()
+    {
+                if (HttpContext.Current != null){
+            var request = HttpContext.Current.Request;
+        }   
+        string ipList = request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+
+        if (!string.IsNullOrEmpty(ipList))
+        {
+            return ipList.Split(',')[0];
+        }
+
+        return Request.ServerVariables["REMOTE_ADDR"];
+    } *@
 
     @* private void setCookie(String location) {
         private HttpCookie locationCookie = new HttpCookie("LocationCookie");
