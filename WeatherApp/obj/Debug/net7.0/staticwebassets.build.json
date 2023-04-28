@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< HEAD
+  "Hash": "zsERharqpvd29EK31fpk8ktdnWLLtwUAcVw41zqUiKM=",
+=======
   "Hash": "2DnHTMohSjN2wnVoDVOr8dCtQLYZ+hwZD0ANk2Bmv2s=",
+>>>>>>> main
   "Source": "WeatherApp",
   "BasePath": "/",
   "Mode": "Root",
@@ -7191,7 +7195,28 @@
       "OriginalItemSpec": "wwwroot/index.html"
     },
     {
+<<<<<<< HEAD
+      "Identity": "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/wwwroot/js/CookieStorageAccessor.js",
+      "SourceId": "WeatherApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "js/CookieStorageAccessor.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/CookieStorageAccessor.js"
+    },
+    {
+      "Identity": "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/wwwroot/sample-data/weather.json",
+=======
       "Identity": "/workspaces/weather_app/WeatherApp/wwwroot/sample-data/weather.json",
+>>>>>>> main
       "SourceId": "WeatherApp",
       "SourceType": "Discovered",
       "ContentRoot": "/workspaces/weather_app/WeatherApp/wwwroot/",

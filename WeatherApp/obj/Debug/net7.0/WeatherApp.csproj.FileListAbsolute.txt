@@ -831,6 +831,9 @@
 /Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/bin/Debug/net7.0/Microsoft.Extensions.Http.dll
 /Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/obj/Debug/net7.0/build-gz/y5wJjQs8.gz
 /Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/obj/Debug/net7.0/scopedcss/Shared/Astro.razor.rz.scp.css
+<<<<<<< HEAD
+/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/obj/Debug/net7.0/scopedcss/Pages/Index.razor.rz.scp.css
+=======
 /workspaces/weather_app/WeatherApp/obj/Debug/net7.0/WeatherApp.csproj.AssemblyReference.cache
 /workspaces/weather_app/WeatherApp/obj/Debug/net7.0/WeatherApp.GeneratedMSBuildEditorConfig.editorconfig
 /workspaces/weather_app/WeatherApp/obj/Debug/net7.0/WeatherApp.AssemblyInfoInputs.cache
@@ -1664,3 +1667,4 @@
 /workspaces/weather_app/WeatherApp/obj/Debug/net7.0/scopedcss/projectbundle/WeatherApp.bundle.scp.css
 /workspaces/weather_app/WeatherApp/obj/Debug/net7.0/WeatherApp.csproj.CopyComplete
 /workspaces/weather_app/WeatherApp/obj/Debug/net7.0/ref/WeatherApp.dll
+>>>>>>> main

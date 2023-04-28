@@ -73,7 +73,15 @@
       "PackagePath": "staticwebassets/index.html"
     },
     {
+<<<<<<< HEAD
+      "Id": "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/wwwroot/js/CookieStorageAccessor.js",
+      "PackagePath": "staticwebassets/js/CookieStorageAccessor.js"
+    },
+    {
+      "Id": "/Users/davidlatham/Documents/Computer Science/Web_Engineering/weather_app/WeatherApp/wwwroot/sample-data/weather.json",
+=======
       "Id": "/workspaces/weather_app/WeatherApp/wwwroot/sample-data/weather.json",
+>>>>>>> main
       "PackagePath": "staticwebassets/sample-data/weather.json"
     },
     {
