@@ -313,11 +313,7 @@
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Alternative</AssetRole>
-<<<<<<< HEAD
-      <RelatedAsset>/Users/kasiviswanathgundapaneedi/Documents/weather_app/WeatherApp/bin/Debug/net7.0/wwwroot/_framework/blazor.webassembly.js</RelatedAsset>
-=======
-      <RelatedAsset>/workspaces/weather_app/WeatherApp/bin/Debug/net7.0/wwwroot/_framework/blazor.webassembly.js</RelatedAsset>
->>>>>>> main
+      <RelatedAsset>/Users/davidlatham/Desktop/weather_app/WeatherApp/bin/Debug/net7.0/wwwroot/_framework/blazor.webassembly.js</RelatedAsset>
       <AssetTraitName>Content-Encoding</AssetTraitName>
       <AssetTraitValue>gzip</AssetTraitValue>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

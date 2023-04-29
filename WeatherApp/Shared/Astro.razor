@@ -12,7 +12,7 @@
 </div>
 <div class="form-group">
     <label class="form-label" for="exampleFormControlInput1">Date</label>
-    <input type="date" class="form-control" id="newdate" @bind-value="newdate" />
+    <input type="text" class="form-control" id="newdate" @bind-value="newdate" />
 </div>
 
 <button class="btn btn-primary" @onclick="selectLocation">Submit</button>
@@ -36,7 +36,7 @@
     private WeatherResponse? weatherResponse = null;
     public WeatherResponse? response = null;
     public string? newLocation;
-    public DateTime? newdate;
+    public string? newdate;
 
     protected override async Task OnInitializedAsync()
     {
