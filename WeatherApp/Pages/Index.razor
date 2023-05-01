@@ -4,6 +4,7 @@
 @using WeatherApp.Shared;
 @using System.Collections.Generic; 
 @using WeatherApp.Pages;
+@using Microsoft.AspNetCore.Components.Forms;
 
 
 @inject WeatherClient WeatherClient;
@@ -18,15 +19,17 @@
 
 @if (!@isLocation) {
     <div class="index-container">
+    <EditForm Model="@locationModel" OnSubmit="@selectLocation"> 
         <h1 class="index-header">Weather Forecast</h1>
         <br/>
-
             <p style="text-align: center;">Enter Location</p>
-        <div  class="text-center"><input style="text-align: center;" class="location-input" placeholder="City, State or Zip Code" @bind="newLocation"/></div>
-        <div class="col text-center" ><button type="button" class="btn btn-success" @onclick="@(e => selectLocation(newLocation))">Show me the weather!</button></div>
-    
-
+        <div  class="text-center">
+            <input class="location-input" @bind="newLocation"/>
         </div>
+        <br/>
+        <div class="col text-center" ><button type="button" class="btn btn-success">Show me the weather!</button></div>
+    </EditForm>
+    </div>
 }else {
 
 <div class="row">
@@ -37,7 +40,6 @@
             <button class="btn btn-outline-primary">.justify-content-end (on flex parent div)</button>
         </div> *@
     <div class="col">
-
         <button type="button" class="btn btn-primary btn-sm float-right" @onclick="changeLocation">change location</button>
     </div>
 </div>
@@ -84,13 +86,13 @@
         <br/>
         <div class="alert-container">
         <details style="cursor: pointer;">
-            <summary>
-                <div>
-                <p class="d-inline-block">@alert.headline --- @alert.areas</p>
-                <p>@alert.effective.ToString("MM/dd/yyyy") - @alert.expires.ToString("MM/dd/yyyy")</p>
-                </div>
+            <summary style="list-style: none;font-family:Comic Sans MS">
+                    <p style="inline">@alert.headline</p>
+                    @if(alert.areas != "") {
+                        <p>Effected Areas: @alert.areas<br/></p>
+                    }
+                    <p>Effective Dates: @alert.effective.ToString("MM/dd/yyyy") - @alert.expires.ToString("MM/dd/yyyy")</p>
             </summary>
-            <br/>
                 <p>@alert.desc</p>
                 <p>@alert.instruction</p>
         </details></div>
@@ -116,6 +118,7 @@
     private string done = "okay";
     private WeatherResponse.Forecast forecast;
     private WeatherResponse.Alerts alerts;
+    private ExampleModel locationModel = new();
 
 
      protected override async Task OnInitializedAsync()
@@ -126,18 +129,17 @@
         //HttpCookie cookie = Request.Cookies("LocationCookie");
         //var savedLocation = cookie.GetValueAsync("location");
         
-
         weatherResponse = await WeatherClient.getWeather("forecast",null, null, null);
         response = weatherResponse;
         asignVariables(response);
-        isLocation=true;
          
     }
     
     private string? newLocation;
-    private async Task selectLocation(string newLoca) {
+    private async Task selectLocation() {
+ 
         if (!string.IsNullOrWhiteSpace(newLocation)) {
-            weatherResponse = await WeatherClient.getWeather("forecast",newLoca, null,null);
+            weatherResponse = await WeatherClient.getWeather("forecast",newLocation, null,null);
             newLocation = string.Empty;
             asignVariables(weatherResponse);
             isLocation=true;
@@ -192,6 +194,9 @@
         locationCookie.Expires = now.AddYears(1);
         Response.Cookies.Add(locationCookie);
     }  *@
+
+
+
 
 }
 

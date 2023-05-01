@@ -1,6 +1,4 @@
-details summary > *[b-5rwp2ce8lp] { 
-    display: inline;
-}
+
 .flex-container[b-5rwp2ce8lp] {
   display: flex;
   justify-content: center;
@@ -33,8 +31,12 @@ details summary > *[b-5rwp2ce8lp] {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     margin: 5px 10px 0px 10px;
-
 }
+
+
+
+
+
 
   .location-form[b-5rwp2ce8lp] {
     display: flex;
@@ -73,4 +75,48 @@ details summary > *[b-5rwp2ce8lp] {
     font-weight: bold;
     font-size: 2em;
     text-align: center;
+  }
+
+
+  details summary[b-5rwp2ce8lp]::-webkit-details-marker {
+    display: none;
+  }
+  
+  details summary[b-5rwp2ce8lp] {
+    width: 100%;
+    padding: 0.5rem 0;
+    border-top: 1px solid rgb(228, 3, 3);
+    position: relative;
+    cursor: pointer;
+    font-size: 1.25rem;
+    font-weight: 300;
+    list-style: none;
+    justify-content: space-between;
+    
+  }
+  
+  details summary[b-5rwp2ce8lp]:before {
+    content: "+";
+    color: black;
+    position: absolute;
+    font-size: 1.75rem;
+    line-height: 0;
+    margin-top: 0.75rem;
+    right: 0;
+    font-weight: 200;
+    transform-origin: center;
+    transition: 200ms linear;
+    padding: 5px;
+  }
+  details[open] summary[b-5rwp2ce8lp]:before {
+    transform: rotate(45deg);
+    font-size: 2rem;
+  }
+  details summary[b-5rwp2ce8lp] {
+    outline: 0;
+  }
+  details p[b-5rwp2ce8lp] {
+    font-size: 0.95rem;
+    margin: 0 0 1rem;
+    padding-top: 1rem;
   }
