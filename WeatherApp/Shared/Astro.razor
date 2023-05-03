@@ -21,9 +21,9 @@
 <div class="output-box">
     <h2 class="display-6" style="color: blue; font-family: Arial, sans-serif;">You are here at @response.location.name</h2>
 
-@if (response != null && response.forecast != null && response.forecast.forecastday != null)
+@if (response != null && response.astronomy != null)
 {
-    var astro = response.forecast.forecastday[0].astro;
+    var astro = response.astronomy.astro;
     <div class="row">
         <div class="col-sm-3">
             <img class="weather-icon" src="https://static.thenounproject.com/png/5680821-200.png" alt="Sunrise" />
@@ -64,13 +64,13 @@
 
     protected override async Task OnInitializedAsync()
     {
-        weatherResponse = await WeatherClient.getWeather("forecast", null, "1", null);
+        weatherResponse = await WeatherClient.getWeather("astronomy", null, "1", null);
         response = weatherResponse;
     }
 
     async Task selectLocation()
     {
-        weatherResponse = await WeatherClient.getWeather("forecast", newLocation, "1", newdate.ToShortDateString());
+        weatherResponse = await WeatherClient.getWeather("astronomy", newLocation, "1", newdate.ToShortDateString());
         response = weatherResponse;
         newLocation = string.Empty; 
     }

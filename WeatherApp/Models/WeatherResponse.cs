@@ -13,6 +13,8 @@ public record WeatherResponse {
     public Alerts alerts {get; init;}
     [JsonPropertyName("forecast")]
     public Forecast forecast {get; init;}
+    [JsonPropertyName("astronomy")]
+    public Astronomy astronomy {get; init;}
 
 
    //// Trying out all classes
@@ -189,12 +191,19 @@ public record WeatherResponse {
         public string localtime { get; set; }
     }
 
+    public class Astronomy
+    {
+        public Astro astro { get; set; }
+    }
+
     public class Root
     {
         public Location location { get; set; }
         public Current current { get; set; }
         public Forecast forecast { get; set; }
         public Alerts alerts { get; set; }
+        public Astronomy astronomy { get; set; }
+    
     }
 
 
