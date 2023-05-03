@@ -3,40 +3,64 @@
 @using WeatherApp.Clients;
 
 @inject WeatherClient WeatherClient;
-
- <PageTitle>Astronomy Page</PageTitle>
-
+<div style="background-color: #f2f2f2; display: flex; justify-content: center;">
+<div style="width: 70%; max-width: 800px; padding: 20px;">
+<h1 class="title" style="font-size: 2rem; font-family: Arial, sans-serif;">Astronomy of the Day</h1>
+@code {
+    DateTime newdate = DateTime.Today;
+}
 <div class="form-group">
     <label class="form-label" for="exampleFormControlInput1">Please enter your City  or Zip Code</label>
     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ex: Columbus or 31907" @bind-value="newLocation" />
-</div>
-<div class="form-group">
     <label class="form-label" for="exampleFormControlInput1">Date</label>
-    <input type="text" class="form-control" id="newdate" @bind-value="newdate" />
+    <InputDate class="form-control" style="width: 200px" format="yyyy-MM-dd" id="newdate" @bind-Value="@newdate" />
 </div>
+
 
 <button class="btn btn-primary" @onclick="selectLocation">Submit</button>
 <div class="output-box">
-<h1 class="display-6">You are here: @response.location.name</h1>
+    <h2 class="display-6" style="color: blue; font-family: Arial, sans-serif;">You are here at @response.location.name</h2>
 
 @if (response != null && response.forecast != null && response.forecast.forecastday != null)
 {
     var astro = response.forecast.forecastday[0].astro;
-    <div>
-        <p>sunrise : @astro.sunrise</p>
-        <p>sunset : @astro.sunset</p>
-        <p>moonrise : @astro.moonrise</p>
-        <p>moonset : @astro.moonset</p>
-        <p>moon_phase : @astro.moon_phase</p>
+    <div class="row">
+        <div class="col-sm-3">
+            <img class="weather-icon" src="https://static.thenounproject.com/png/5680821-200.png" alt="Sunrise" />
+            <h4>Sunrise</h4>
+            <p>@astro.sunrise</p>
+        </div>
+        <div class="col-sm-3">
+            <img class="weather-icon" src="https://static.thenounproject.com/png/3816464-200.png" alt="Moonrise" />
+            <h4>Moonrise</h4>
+            <p>@astro.moonrise</p>
+        </div>
+        <div class="col-sm-3">
+            <img class="weather-icon" src="https://static.thenounproject.com/png/2611472-200.png" alt="Sunset" />
+            <h4>Sunset</h4>
+            <p>@astro.sunset</p>
+        </div>
+        <div class="col-sm-3">
+            <img class="weather-icon" src="https://static.thenounproject.com/png/971154-200.png" alt="Moonset" />
+            <h4>Moonset</h4>
+            <p>@astro.moonset</p>
+        </div>
     </div>
 }
+<style>
+    .weather-icon {
+        width: 50px;
+        height: 50px;
+    }
+</style>
+</div>
+</div>
 </div>
 
 @code {
     private WeatherResponse? weatherResponse = null;
     public WeatherResponse? response = null;
     public string? newLocation;
-    public string? newdate;
 
     protected override async Task OnInitializedAsync()
     {
@@ -46,9 +70,8 @@
 
     async Task selectLocation()
     {
-        weatherResponse = await WeatherClient.getWeather("forecast", newLocation, "1", newdate);
+        weatherResponse = await WeatherClient.getWeather("forecast", newLocation, "1", newdate.ToShortDateString());
         response = weatherResponse;
-        newLocation = string.Empty;
-        newdate = null;
+        newLocation = string.Empty; 
     }
 }
