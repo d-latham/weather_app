@@ -169,7 +169,6 @@
   }
   
 /* /Pages/Index.razor.rz.scp.css */
-
 .flex-container[b-5rwp2ce8lp] {
   display: flex;
   justify-content: center;
@@ -181,13 +180,28 @@
   font-size: 10em;
 }
 
-.index-container[b-5rwp2ce8lp] {
-    background-color: rgba(255, 255, 255, 0.9);
+
+
+
+.index-weather[b-5rwp2ce8lp] {
+    background-color: rgba(255, 255, 255, 0.5);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    margin: 50px auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin: 10% 25px;
     max-width: 800px;
+}
+
+.index-container[b-5rwp2ce8lp]{
+
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow:0 0 20px rgba(0, 0, 0, 0.5);
+  margin: 50px 25px;
+  max-width: 1000px;
+
+
 }
 .index-header[b-5rwp2ce8lp] {
     font-size: 3em;
@@ -200,13 +214,9 @@
     background-color: rgba(255, 255, 255, 0.9);
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(154, 1, 1, 0.35);
     margin: 5px 10px 0px 10px;
 }
-
-
-
-
 
 
   .location-form[b-5rwp2ce8lp] {
@@ -256,7 +266,7 @@
   details summary[b-5rwp2ce8lp] {
     width: 100%;
     padding: 0.5rem 0;
-    border-top: 1px solid rgb(228, 3, 3);
+    
     position: relative;
     cursor: pointer;
     font-size: 1.25rem;
@@ -272,12 +282,12 @@
     position: absolute;
     font-size: 1.75rem;
     line-height: 0;
-    margin-top: 0.75rem;
+    /* margin-top: 0.5rem; */
     right: 0;
     font-weight: 200;
     transform-origin: center;
     transition: 200ms linear;
-    padding: 5px;
+    /* padding: 5px; */
   }
   details[open] summary[b-5rwp2ce8lp]:before {
     transform: rotate(45deg);
@@ -305,8 +315,14 @@
   color: #75717b;
 }
 
+.astro-details[b-gpc57fcor0] {
+  display: flex;
+  flex-direction: column;
+}
+
 .form-control[b-gpc57fcor0] {
   display: block;
+  background-color: rgba(255, 255, 255, 0.8);
   width: 50%;
   height: calc(2rem + 2px);
   padding: 0.25rem 0.5rem;
@@ -314,7 +330,6 @@
   font-weight: 400;
   line-height: 1.5;
   color: #495057;
-  background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
@@ -347,24 +362,16 @@
 }
 
 .output-box[b-gpc57fcor0] {
-  width: 50%;
-  margin-top: 1rem;
-  padding: 0.5rem;
+  width: 80%;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
   background-color: #f2f2f2;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  font-size: large;
+  border: 2px solid #ced4da;
+  border-radius: 0.5rem;
+  font-size: 1.25rem;
   font-family: Arial, Helvetica, sans-serif;
-}
-
-.output-box .sunrise[b-gpc57fcor0], 
-.output-box .sunset[b-gpc57fcor0], 
-.output-box .moonrise[b-gpc57fcor0], 
-.output-box .moonset[b-gpc57fcor0], 
-.output-box .moon_phase[b-gpc57fcor0] {
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .display-6[b-gpc57fcor0] {
@@ -374,14 +381,33 @@
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
-
-.output-box .date[b-gpc57fcor0], 
-.output-box .location[b-gpc57fcor0] {
-  font-family: 'Helvetica Neue', sans-serif;
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+.astro-details[b-gpc57fcor0] {
+  display: flex;
+  flex-direction: column;
 }
+
+.astro-details img[b-gpc57fcor0] {
+  margin-right: 1rem;
+}
+
+.astro-details p[b-gpc57fcor0] {
+  margin: 0;
+}
+
+
+.output-box .astro-details[b-gpc57fcor0] {
+  width: 50%;
+  margin: 0;
+}
+
+.output-box .astro-details:nth-child(odd)[b-gpc57fcor0] {
+  text-align: right;
+}
+
+.output-box .astro-details:nth-child(even)[b-gpc57fcor0] {
+  text-align: left;
+}
+
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-p2bs0tkcr3] {
     position: relative;
@@ -393,9 +419,9 @@ main[b-p2bs0tkcr3] {
     flex: 1;
 }
 
-.sidebar[b-p2bs0tkcr3] {
+/* .sidebar {
     background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
-}
+} */
 
 .top-row[b-p2bs0tkcr3] {
     background-color: #f7f7f7;
@@ -445,6 +471,8 @@ main[b-p2bs0tkcr3] {
         height: 100vh;
         position: sticky;
         top: 0;
+        /* background-color: rgb(47, 79, 79) */
+        background-color: lightslategray;
     }
 
     .top-row[b-p2bs0tkcr3] {

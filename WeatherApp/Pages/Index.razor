@@ -14,11 +14,18 @@
 @page "/"
 
 <PageTitle>Index</PageTitle>
+<style>
+    body {
+        
+        @* background-image: linear-gradient(rgb(47, 79, 79), rgb(208, 208, 208)); *@
+        background-image: linear-gradient(lightslategray, rgb(208, 208, 208));
+
+    }
+</style>
 
 <!-- Show initial popup to get location -->
-
 @if (!@isLocation) {
-    <div class="index-container">
+    <div class="index-weather">
     <EditForm Model="@locationModel" OnSubmit="@selectLocation"> 
         <h1 class="index-header">Weather Forecast</h1>
         <br/>
@@ -27,11 +34,11 @@
             <input class="location-input" @bind="newLocation"/>
         </div>
         <br/>
-        <div class="col text-center" ><button type="button" class="btn btn-success">Show me the weather!</button></div>
+        <div class="col text-center" ><button type="button" class="btn btn-info">Show me the weather!</button></div>
     </EditForm>
     </div>
 }else {
-
+<div class="index-container">
 <div class="row">
     <div class="col">
         <h1>@city, @state</h1>
@@ -40,7 +47,7 @@
             <button class="btn btn-outline-primary">.justify-content-end (on flex parent div)</button>
         </div> *@
     <div class="col">
-        <button type="button" class="btn btn-primary btn-sm float-right" @onclick="changeLocation">change location</button>
+        <button type="button" class="btn btn-info btn-sm float-right" @onclick="changeLocation">change location</button>
     </div>
 </div>
 <!-- Conditions -->
@@ -86,8 +93,8 @@
         <br/>
         <div class="alert-container">
         <details style="cursor: pointer;">
-            <summary style="list-style: none;font-family:Comic Sans MS">
-                    <p style="inline">@alert.headline</p>
+            <summary style="list-style: none;font-family:Comic Sans MS; padding-right: 20px;">
+                    <p>@alert.headline</p>
                     @if(alert.areas != "") {
                         <p>Effected Areas: @alert.areas<br/></p>
                     }
@@ -96,8 +103,9 @@
                 <p>@alert.desc</p>
                 <p>@alert.instruction</p>
         </details></div>
+        }
     }
-}
+</div>
 }
 
 @code {
