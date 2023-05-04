@@ -41,15 +41,12 @@ public class WeatherClient
             dateDefault = date;
         }
 
-        if(pageA == "current"){
+        if(pageA == "astronomy"){
+           paramaters = "&dt="+date;
             url += paramaters;
         }
         else if(pageA == "forecast"){
             paramaters = "&days=" + numDays + "&aqi=yes&alerts=yes";
-            url += paramaters;
-        }
-        else{
-            paramaters = "&dt="+date;
             url += paramaters;
         }
         

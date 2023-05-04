@@ -169,6 +169,10 @@
   }
   
 /* /Pages/Index.razor.rz.scp.css */
+body[b-5rwp2ce8lp] {
+  background-image: linear-gradient(lightslategray, rgb(208, 208, 208));
+}
+
 .flex-container[b-5rwp2ce8lp] {
   display: flex;
   justify-content: center;
@@ -180,15 +184,12 @@
   font-size: 10em;
 }
 
-
-
-
 .index-weather[b-5rwp2ce8lp] {
     background-color: rgba(255, 255, 255, 0.5);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    margin: 10% 25px;
+    margin: 50px 20px;
     max-width: 800px;
 }
 
@@ -198,7 +199,7 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow:0 0 20px rgba(0, 0, 0, 0.5);
-  margin: 50px 25px;
+  margin: 50px 20px;
   max-width: 1000px;
 
 

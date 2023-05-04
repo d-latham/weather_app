@@ -1,0 +1,52 @@
+@using WeatherApp.Models;
+
+<div class="row">
+    <div class="col float-right" style="align-items: right; margin: 0px 10px 0px 10px;">
+        <p>It's currently <span style="font-size: 120%; font-weight: bold;">@current.temp_f<sup>o</sup>F</span> and feels like
+         <span style="font-size: 120%;   font-weight: bold;"> @current.feelslike_f<sup>o</sup>F</span> out.
+        <br/>The current onditions are @current.condition.text with a @forecast.forecastday[0].day.daily_chance_of_rain% chance of rain.
+        <br/>Winds are headed @current.wind_dir at @current.wind_mph mph with gusts up to @current.gust_mph mph
+        <br/>with humidity is sitting at @current.humidity% and visibility of @current.vis_miles miles.
+        </p>
+    </div>
+</div>
+<br/>
+<!-- 3 day forecast hi/lo -->
+@if (forecast != null) {
+    <div class="row" style="justify-content: center;">
+        @for(int i = 0; i < forecast.forecastday.Count; i++) {
+            <div class="col">
+                @if (i == 0) {
+                    <h3 style="text-align: center;">Today</h3>
+                } else {
+                    <h3 style="text-align: center;">@dateTime.AddDays(i).DayOfWeek</h3> 
+                }
+                <div>
+                    <p style="text-align: center;"><span style="font-size: 120%; font-weight: bold;">@forecast.forecastday[i].day.maxtemp_f<sup>o</sup></span>/@forecast.forecastday[i].day.mintemp_f<sup>o</sup>
+                    </p>
+                </div>
+                <div style="margin-left: auto; margin-right: auto; width: 50%;">
+                    <img style="display: block; margin-left: auto; margin-right: auto; width: 50%" src=@forecast.forecastday[i].day.condition.icon alt = "icon"/>
+                </div>
+                @if (forecast.forecastday[i].day.daily_chance_of_rain > 0) {
+                    <p style="text-align: center;">@forecast.forecastday[i].day.daily_chance_of_rain% chance of Rain</p>
+                } else if (forecast.forecastday[i].day.daily_chance_of_snow > 0) {
+                    <p style="text-align: center;">@forecast.forecastday[i].day.daily_chance_of_snow% chance of Snow</p>
+                } else {
+                    <p style="text-align: center;">0% chance of precipitation</p>
+                }
+            </div>
+        }
+    </div>
+}
+
+@code {
+    [Parameter]
+    public WeatherResponse.Forecast forecast {get; set;}
+
+    [Parameter]
+    public DateTime dateTime {get; set;}
+
+    [Parameter]
+    public WeatherResponse.Current current {get; set;}
+}

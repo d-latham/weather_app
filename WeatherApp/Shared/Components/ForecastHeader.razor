@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col" style="margin: 0px 10px 0px 10px;">
+        <h1>@city, @state</h1>
+    </div>
+    <div class="col">
+        <button style="margin: 0px 10px 0px 10px;" type="button" class="btn btn-info btn-sm float-right" @onclick="onClick">change location</button>
+    </div>
+    <br/>
+</div>
+@code {
+    [Parameter]
+    public string city {get; set;}
+
+    [Parameter]
+    public string state {get; set;}
+
+    [Parameter]
+    public EventCallback onClick { get; set; }
+}

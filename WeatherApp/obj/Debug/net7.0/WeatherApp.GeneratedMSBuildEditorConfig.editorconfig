@@ -24,6 +24,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQXN0cm9ub215LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/davidlatham/Desktop/weather_app/WeatherApp/Shared/Components/DailyForecast.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0NvbXBvbmVudHMvRGFpbHlGb3JlY2FzdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/davidlatham/Desktop/weather_app/WeatherApp/Shared/Components/ForecastHeader.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0NvbXBvbmVudHMvRm9yZWNhc3RIZWFkZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/davidlatham/Desktop/weather_app/WeatherApp/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1N1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

@@ -219,3 +219,32 @@ public record WeatherResponse {
     //     public double temp_c {get; init;}
     // }
 }
+
+// "last_updated_epoch": 1683153900,
+//         "last_updated": "2023-05-03 23:45",
+//         "temp_c": 8.0,
+//         "temp_f": 46.4,
+//         "is_day": 0,
+//         "condition": {
+//             "text": "Clear",
+//             "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png",
+//             "code": 1000
+//         },
+//         "wind_mph": 11.9,
+//         "wind_kph": 19.1,
+//         "wind_degree": 80,
+//         "wind_dir": "E",
+//         "pressure_mb": 1022.0,
+//         "pressure_in": 30.18,
+//         "precip_mm": 0.0,
+//         "precip_in": 0.0,
+//         "humidity": 81,
+//         "cloud": 0,
+//         "feelslike_c": 5.5,
+//         "feelslike_f": 41.9,
+//         "vis_km": 10.0,
+//         "vis_miles": 6.0,
+//         "uv": 1.0,
+//         "gust_mph": 14.3,
+//         "gust_kph": 23.0
+//     },
