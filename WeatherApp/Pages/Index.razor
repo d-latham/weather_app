@@ -94,7 +94,7 @@
  
         if (!string.IsNullOrWhiteSpace(newLocation)) {
             weatherResponse = await WeatherClient.getWeather("forecast",newLocation, null,null);
-            await JSRuntime.InvokeVoidAsync("CookieFunction.setCookie", "Location=" + newLocation);
+            await JSRuntime.InvokeVoidAsync("SetCookie.setCookie", "Location=" + newLocation);
             newLocation = string.Empty;
             asignVariables(weatherResponse);
             isLocation=true;
@@ -103,14 +103,14 @@
     }
 
     private void asignVariables(WeatherResponse response) {
-        city = response.location.name;
-        state = response.location.region;
-        description = response.current.condition.text.ToLower();
-        forecast = response.forecast;
-        currentURL = response.current.condition.icon;
-        alerts = response.alerts;
-        current = response.current;
-        dateTime = Convert.ToDateTime(response.location.localtime);    
+        city = response?.location?.name;
+        state = response?.location?.region;
+        description = response?.current?.condition?.text?.ToLower();
+        forecast = response?.forecast;
+        currentURL = response?.current?.condition?.icon;
+        alerts = response?.alerts;
+        current = response?.current;
+        dateTime = Convert.ToDateTime(response?.location?.localtime);    
     }
 
     private void changeLocation(){
