@@ -36,7 +36,27 @@
         <a class="dismiss">🗙</a>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
+    <script>
+        window.CookieFunction = {
+            setCookie: function (cookieString) {
+                document.cookie = cookieString;
 
+            }
+        };   
+        window.GetCookie = {
+            getCookie: function (name) {
+               // let name = cookieName +
+                var cookies = document.cookie.split(";");
+                for (var i=0; i < cookies.length; i++) {
+                    var cookiePair = cookies[i].split("=");
+                    if (cookiePair[0].trim() == name) {
+                        return decodeURIComponent(cookiePair[1]);
+                    }
+                }
+                return "";
+            }
+        }
+   </script>
 </body>
 
 </html>

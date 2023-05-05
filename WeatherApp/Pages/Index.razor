@@ -9,35 +9,27 @@
 
 
 @inject WeatherClient WeatherClient;
-
+@inject IJSRuntime JSRuntime;
 
 
 @page "/"
 
-<PageTitle>Index</PageTitle>
-<style>
-    body {
-        
-        @* background-image: linear-gradient(rgb(47, 79, 79), rgb(208, 208, 208)); *@
-        
-    }
-</style>
-
+<PageTitle>Index</PageTitle> 
 <!-- Show initial popup to get location -->
 @if (!@isLocation) {
     <div class="index-weather">
-    <EditForm Model="@locationModel" OnSubmit="@selectLocation"> 
-        <h1 class="index-header">Weather Forecast</h1>
-        <br/>
-        <p style="text-align: center;">Enter Location</p>
-        <div  class="text-center">
-            <input class="location-input" @bind="newLocation"/>
-        </div>
-        <br/>
-        <div class="col text-center" >
-            <button type="button" class="btn btn-info">Show me the weather!</button>
-        </div>
-    </EditForm>
+        <EditForm Model="@locationModel" OnSubmit="@selectLocation"> 
+            <h1 class="index-header">Weather Forecast</h1>
+            <br/>
+            <p style="text-align: center;">Enter Location</p>
+            <div  class="text-center">
+                <input class="location-input" @bind="newLocation"/>
+            </div>
+            <br/>
+            <div class="col text-center" >
+                <button type="button" class="btn btn-info">Show me the weather!</button>
+            </div>
+        </EditForm>
     </div>
 } else {
     <div class="index-container">
@@ -71,36 +63,30 @@
 
 @code {
     private WeatherResponse? weatherResponse = null;
-    
-    //private WeatherApp.Shared.CookieStorageAccessor cookie = new WeatherApp.Shared.CookieStorageAccessor();
-    // Variables for use on the page
-    private WeatherResponse response = null;
-    private string city;
-    private string state;
-    private string description;
-    private string currentURL;
+    private WeatherResponse? response = null;
+    private string? city;
+    private string? state;
+    private string? description;
+    private string? currentURL;
     private bool isLocation = false;
-    private WeatherResponse.Current current;
+    private WeatherResponse.Current? current;
     private DateTime dateTime;
 
-    private WeatherResponse.Forecast forecast;
-    private WeatherResponse.Alerts alerts;
+    private WeatherResponse.Forecast? forecast;
+    private WeatherResponse.Alerts? alerts;
     private LocationModel locationModel = new();
 
-
+    private string? savedLocation;
      protected override async Task OnInitializedAsync()
      {
-        
-        //CookieStorageAccessor cookie = new CookieStorageAccessor(new IJSRuntime());
-        //cookie.SetValueAsync("location","Durango, Co");
-        //HttpCookie cookie = Request.Cookies("LocationCookie");
-        //var savedLocation = cookie.GetValueAsync("location");
-        
-        weatherResponse = await WeatherClient.getWeather("forecast",null, null, null);
-        response = weatherResponse;
-        asignVariables(response);
-        isLocation=true;
-         
+              
+        var savedLocation = await JSRuntime.InvokeAsync<string>("GetCookie.getCookie", "Location");
+        if (savedLocation != "") {
+            isLocation=true;
+            weatherResponse = await WeatherClient.getWeather("forecast",savedLocation, null, null);
+            response = weatherResponse;
+            asignVariables(response);
+        } else {isLocation=false;}
     }
     
     private string? newLocation;
@@ -108,9 +94,11 @@
  
         if (!string.IsNullOrWhiteSpace(newLocation)) {
             weatherResponse = await WeatherClient.getWeather("forecast",newLocation, null,null);
+            await JSRuntime.InvokeVoidAsync("CookieFunction.setCookie", "Location=" + newLocation);
             newLocation = string.Empty;
             asignVariables(weatherResponse);
             isLocation=true;
+
         }
     }
 
@@ -128,31 +116,8 @@
     private void changeLocation(){
         isLocation = false;
     }
-
-    @* private string GetUserIP()
-    {
-                if (HttpContext.Current != null){
-            var request = HttpContext.Current.Request;
-        }   
-        string ipList = request.ServerVariables["HTTP_X_FORWARDED_FOR"];
-
-        if (!string.IsNullOrEmpty(ipList))
-        {
-            return ipList.Split(',')[0];
-        }
-
-        return Request.ServerVariables["REMOTE_ADDR"];
-    } *@
-
-    @* private void setCookie(String location) {
-        private HttpCookie locationCookie = new HttpCookie("LocationCookie");
-        locationCookie.Value = location;
-        locationCookie.Expires = now.AddYears(1);
-        Response.Cookies.Add(locationCookie);
-    }  *@
-
-
-
-
+    private void sleepFunction() {
+        Thread.Sleep(1000);
+    }
 }
 

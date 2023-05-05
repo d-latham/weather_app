@@ -12,7 +12,7 @@ public class WeatherClient
         _client = client;
     }
 
-    public async Task<WeatherResponse> getWeather(string pageaddress, string location, string numberOfDays, string date)
+    public async Task<WeatherResponse> getWeather(string pageaddress, string? location, string? numberOfDays, string? date)
     {
 
         string pageA = pageaddress;
