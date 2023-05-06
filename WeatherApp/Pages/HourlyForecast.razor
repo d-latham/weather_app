@@ -2,6 +2,7 @@
 @using WeatherApp.Clients;
 @inject WeatherClient WeatherClient;
 @page "/hourly"
+@inject IJSRuntime JSRuntime;
 
 <PageTitle>Hourly Forecast</PageTitle>
 <div>
@@ -14,8 +15,9 @@
 </div>
 <button type="submit" @onclick="selectLocation" class="btn btn-primary mb-3">submit</button>
 </div>
+@if(@ispresent){
 
-<h1 class="display-6" style="font-family:Verdana, sans-serif;">You are at: @response.location.name</h1>
+<h1 class="display-6" style="font-family:Verdana, sans-serif;">You are at: @response.location.name, @response.location.region</h1>
 
 
 
@@ -77,18 +79,25 @@
    }
 
 
-}
+}}
 
 @code {
     private WeatherResponse? weatherResponse = null;
     public WeatherResponse response = null;
     public String dt;
+    private string? savedLocation;
+    public bool ispresent = false;
     protected override async Task OnInitializedAsync() {
-        
-        weatherResponse = await WeatherClient.getWeather("forecast", null,"1",null);
+        savedLocation = await JSRuntime.InvokeAsync<string>("GetCookie.getCookie", "Location");
+        if(savedLocation!=""){
+            ispresent = true;
+        weatherResponse = await WeatherClient.getWeather("forecast", savedLocation,"1",null);
         response = weatherResponse;
         Console.WriteLine(response);
         dt = (response.location.localtime.Split(" "))[0];
+    }else{
+ ispresent = false;
+    }
     }
 
     public string? newLocation;
@@ -97,13 +106,15 @@
      async Task selectLocation() {
         if (!string.IsNullOrWhiteSpace(newLocation)) {
             weatherResponse = await WeatherClient.getWeather("forecast",newLocation, days,null);
+            await JSRuntime.InvokeVoidAsync("SetCookie.setCookie", "Location=" + newLocation);
             response = weatherResponse;
             newLocation = string.Empty;
             days = string.Empty;
+            ispresent = true;
         }
     }
 
-public string? data = "no";
+
 
     
 }

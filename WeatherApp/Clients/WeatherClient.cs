@@ -19,7 +19,7 @@ public class WeatherClient
         string api_key = "d5f4a95b8c7a4c6eb1a125959231404";
         string url = "http://api.weatherapi.com/v1/"+pageA+".json?key=" + api_key;
         string paramaters = string.Empty;
-        string numDays = "3";
+        string numDays = "1";
         string dateDefault = "2023-04-15";
 
 
