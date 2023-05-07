@@ -16,8 +16,6 @@ public record WeatherResponse {
     [JsonPropertyName("astronomy")]
     public Astronomy? astronomy {get; init;}
 
-
-   //// Trying out all classes
  
     public class AirQuality
     {

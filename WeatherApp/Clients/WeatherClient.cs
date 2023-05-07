@@ -28,9 +28,7 @@ public class WeatherClient
         {
             url += "&q=" + location;
         } 
-        else {
-            url += "&q=New Orleans";
-        }
+
  
         if (numberOfDays != null) {
             numDays = numberOfDays;

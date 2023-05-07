@@ -22,7 +22,7 @@
 
 <button class="btn btn-primary" @onclick="selectLocation">Submit</button>
 <div class="output-box" style="text-align: center;">
-    <h2 class="display-6" style="font-size: 1.5rem; font-family: Arial, sans-serif;display: flex; justify-content: center">You are here at @response.location.name!</h2>
+    <h2 class="display-6" style="font-size: 1.5rem; font-family: Arial, sans-serif;display: flex; justify-content: center">You are at @response.location.name!</h2>
 
 @if (response != null && response.astronomy != null)
 {

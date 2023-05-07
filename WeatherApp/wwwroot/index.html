@@ -40,12 +40,10 @@
         window.SetCookie = {
             setCookie: function (cookieString) {
                 document.cookie = cookieString;
-
             }
         };   
         window.GetCookie = {
             getCookie: function (name) {
-               // let name = cookieName +
                 var cookies = document.cookie.split(";");
                 for (var i=0; i < cookies.length; i++) {
                     var cookiePair = cookies[i].split("=");

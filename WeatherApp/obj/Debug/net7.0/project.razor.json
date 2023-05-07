@@ -216,43 +216,6 @@
         }
       },
       {
-        "HashCode": 985783806,
-        "Kind": "Components.Component",
-        "Name": "WeatherApp.Shared.Astro",
-        "AssemblyName": "WeatherApp",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Astro"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "WeatherApp.Shared.Astro",
-          "Common.TypeNameIdentifier": "Astro",
-          "Common.TypeNamespace": "WeatherApp.Shared",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
-        "HashCode": 497206520,
-        "Kind": "Components.Component",
-        "Name": "WeatherApp.Shared.Astro",
-        "AssemblyName": "WeatherApp",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "WeatherApp.Shared.Astro"
-          }
-        ],
-        "Metadata": {
-          "Common.TypeName": "WeatherApp.Shared.Astro",
-          "Common.TypeNameIdentifier": "Astro",
-          "Common.TypeNamespace": "WeatherApp.Shared",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
-          "Runtime.Name": "Components.IComponent"
-        }
-      },
-      {
         "HashCode": 471843890,
         "Kind": "Components.Component",
         "Name": "WeatherApp.Shared.MainLayout",
@@ -583,6 +546,43 @@
           "Common.TypeName": "WeatherApp.Shared.Components.ForecastHeader",
           "Common.TypeNameIdentifier": "ForecastHeader",
           "Common.TypeNamespace": "WeatherApp.Shared.Components",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 985783806,
+        "Kind": "Components.Component",
+        "Name": "WeatherApp.Shared.Astro",
+        "AssemblyName": "WeatherApp",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Astro"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "WeatherApp.Shared.Astro",
+          "Common.TypeNameIdentifier": "Astro",
+          "Common.TypeNamespace": "WeatherApp.Shared",
+          "Runtime.Name": "Components.IComponent"
+        }
+      },
+      {
+        "HashCode": 497206520,
+        "Kind": "Components.Component",
+        "Name": "WeatherApp.Shared.Astro",
+        "AssemblyName": "WeatherApp",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "WeatherApp.Shared.Astro"
+          }
+        ],
+        "Metadata": {
+          "Common.TypeName": "WeatherApp.Shared.Astro",
+          "Common.TypeNameIdentifier": "Astro",
+          "Common.TypeNamespace": "WeatherApp.Shared",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch",
           "Runtime.Name": "Components.IComponent"
         }

@@ -27,7 +27,7 @@
             </div>
             <br/>
             <div class="col text-center" >
-                <button type="button" class="btn btn-info">Show me the weather!</button>
+                <button type="button" class="btn btn-info" @onclick="selectLocation" >Show me the weather!</button>
             </div>
         </EditForm>
     </div>
@@ -82,8 +82,8 @@
               
         var savedLocation = await JSRuntime.InvokeAsync<string>("GetCookie.getCookie", "Location");
         if (savedLocation != "") {
-            isLocation=true;
-            weatherResponse = await WeatherClient.getWeather("forecast",savedLocation, null, null);
+            isLocation = true;
+            weatherResponse = await WeatherClient.getWeather("forecast",savedLocation, "3", null);
             response = weatherResponse;
             asignVariables(response);
         } else {isLocation=false;}
@@ -93,7 +93,7 @@
     private async Task selectLocation() {
  
         if (!string.IsNullOrWhiteSpace(newLocation)) {
-            weatherResponse = await WeatherClient.getWeather("forecast",newLocation, null,null);
+            weatherResponse = await WeatherClient.getWeather("forecast",newLocation, "3",null);
             await JSRuntime.InvokeVoidAsync("SetCookie.setCookie", "Location=" + newLocation);
             newLocation = string.Empty;
             asignVariables(weatherResponse);
