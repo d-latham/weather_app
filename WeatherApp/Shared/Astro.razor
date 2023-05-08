@@ -4,9 +4,9 @@
 @inject WeatherClient WeatherClient;
 @inject IJSRuntime JSRuntime;
 
-<div style="display: flex; justify-content: center;" class="bg-sunmoon">
+<div style="display: flex; justify-content: center;">
 <div style="width: 70%; max-width: 800px; padding: 20px;">
-<h1 style="color: #007bff">Astronomy of the Day</h1>
+<h1 style="color: #c6dbf2">Astronomy of the Day</h1>
 @code {
     DateTime newdate = DateTime.Today;
 }
@@ -23,14 +23,14 @@
 <button class="btn btn-primary" @onclick="selectLocation">Submit</button>
 <div class="output-box" style="text-align: center;">
     <h2 class="display-6" style="font-size: 1.5rem; font-family: Arial, sans-serif;display: flex; justify-content: center">You are at @response.location.name!</h2>
-
+    <br/>
 @if (response != null && response.astronomy != null)
 {
     var astro = response.astronomy.astro;
     <div class="row">
         <div class="col-sm-3">
-            <img style="background:#e8a266" class="weather-icon" src="https://static.thenounproject.com/png/5680821-200.png" alt="Sunrise" />
-            <h4 style="font-size: 1.2rem; font-family: Arial, sans-serif; color: #e8a266 ;">Sunrise</h4>
+            <img style="background:#ef7d19" class="weather-icon" src="https://static.thenounproject.com/png/5680821-200.png" alt="Sunrise" />
+            <h4 style="font-size: 1.2rem; font-family: Arial, sans-serif; color: #ef7d19 ;">Sunrise</h4>
             <p>@astro.sunrise</p>
         </div>
         <div class="col-sm-3">
@@ -55,11 +55,6 @@
     .weather-icon {
         width: 60px;
         height: 60px;
-    }
-    .bg-sunmoon {
-        background-image: url("https://i.imgur.com/GvETqFy.gif");
-        height: 100vh;
-        width: 100%;
     }
 </style>
 </div>
