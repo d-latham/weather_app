@@ -74,7 +74,7 @@
             weatherResponse = await WeatherClient.getWeather("astronomy", savedLocation, "1", null);
         }
         else {
-            weatherResponse = await WeatherClient.getWeather("astronomy", null, "1", null);
+            weatherResponse = await WeatherClient.getWeather("astronomy", "New Orleans", "1", null);
         }
         response = weatherResponse;
     }
