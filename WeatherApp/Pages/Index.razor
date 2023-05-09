@@ -78,15 +78,14 @@
 
     private string? savedLocation;
      protected override async Task OnInitializedAsync()
-     {
-              
+     {   
         var savedLocation = await JSRuntime.InvokeAsync<string>("GetCookie.getCookie", "Location");
         if (savedLocation != "") {
             isLocation = true;
             weatherResponse = await WeatherClient.getWeather("forecast",savedLocation, "3", null);
             response = weatherResponse;
             asignVariables(response);
-        } else {isLocation=false;}
+        } 
     }
     
     private string? newLocation;
@@ -115,9 +114,6 @@
 
     private void changeLocation(){
         isLocation = false;
-    }
-    private void sleepFunction() {
-        Thread.Sleep(1000);
     }
 }
 

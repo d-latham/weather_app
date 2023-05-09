@@ -30,14 +30,12 @@ body[b-5rwp2ce8lp] {
   box-shadow:0 0 20px rgba(0, 0, 0, 0.5);
   margin: 50px 20px;
   max-width: 1000px;
-
-
 }
 .index-header[b-5rwp2ce8lp] {
     font-size: 3em;
     font-family: Arial, sans-serif;
     margin-bottom: 30px;
-    text-align: center; /* Added to center the text */
+    text-align: center;
   }
 
   .alert-container[b-5rwp2ce8lp] {
@@ -47,7 +45,6 @@ body[b-5rwp2ce8lp] {
     box-shadow: 0 0 10px rgba(154, 1, 1, 0.35);
     margin: 5px 10px 0px 10px;
 }
-
 
   .location-form[b-5rwp2ce8lp] {
     display: flex;
@@ -71,9 +68,6 @@ body[b-5rwp2ce8lp] {
 .card[b-5rwp2ce8lp] {
     flex-direction: column;
 }
-
-
-
 
   .flex-item[b-5rwp2ce8lp] {
     background: tomato;
@@ -103,7 +97,6 @@ body[b-5rwp2ce8lp] {
     font-weight: 300;
     list-style: none;
     justify-content: space-between;
-    
   }
   
   details summary[b-5rwp2ce8lp]:before {
@@ -112,20 +105,21 @@ body[b-5rwp2ce8lp] {
     position: absolute;
     font-size: 1.75rem;
     line-height: 0;
-    /* margin-top: 0.5rem; */
     right: 0;
     font-weight: 200;
     transform-origin: center;
     transition: 200ms linear;
-    /* padding: 5px; */
   }
+
   details[open] summary[b-5rwp2ce8lp]:before {
     transform: rotate(45deg);
     font-size: 2rem;
   }
+
   details summary[b-5rwp2ce8lp] {
     outline: 0;
   }
+
   details p[b-5rwp2ce8lp] {
     font-size: 0.95rem;
     margin: 0 0 1rem;
